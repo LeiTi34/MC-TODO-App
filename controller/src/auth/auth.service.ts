@@ -24,4 +24,13 @@ export class AuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
+
+  async register(user: any) {
+    const savedUser = await this.usersService.save(user);
+    const payload = { username: savedUser.username, sub: savedUser.id };
+
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
+  }
 }
