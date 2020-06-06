@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #fff;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Rechteck_2" data-name="Rechteck 2" class="cls-1">
+    <rect class="cls-2" width="25" height="25" rx="8"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="24" height="24" rx="7.5"/>
+  </g>
+</svg>
