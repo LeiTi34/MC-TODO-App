@@ -32,3 +32,10 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# IDE - Theia
+.theia/*
+!.theia/settings.json
+!.theia/tasks.json
+!.theia/launch.json
+!.theia/extensions.json
