@@ -1,0 +1,6 @@
+<div class="todo-form">
+    <img id="todo-add" (click)=createNewTodo() src="./assets/add-img.svg">
+    <div id="todo-content">
+        <input type="text" [(ngModel)]="toDo$.title" placeholder="Was soll erledigt werden?" (keyup.enter)="createNewTodo()">
+    </div>
+</div>

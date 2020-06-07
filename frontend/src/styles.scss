@@ -3,13 +3,14 @@
 // Color Palette
 $dark-blue: #101025;
 $light-blue: #181832;
-$white-text: #ECF1FF;
+$white: #ECF1FF;
 $purple: #7E7EF7;
 $grey: #9A9A9A;
 
 // Fonts
 $font1: "Segoe UI";
 $font2: "Montserrat";
+$font-small: 20px;
 
 
 html { 
@@ -19,7 +20,7 @@ body {
     margin: 16px;
 }
 h1,h2,h3,h4,h5,h6 {
-    color: $white-text;
+    color: $white;
     font-family: $font2;
     font-weight: 100;
 }
@@ -29,5 +30,5 @@ h1 {
 
 p {
     font-family: $font1;
-    color: $white-text;
+    color: $white;
 }

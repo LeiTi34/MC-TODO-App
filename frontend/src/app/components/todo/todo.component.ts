@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ToDo } from 'src/app/interface/todo';
 
 @Component({
   selector: 'app-todo',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
+  @Input() toDo$: ToDo;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  printTodo(event: any): void {
+    if (event.target === event.currentTarget) {
+      console.log(this.toDo$);
+    }
   }
 
 }

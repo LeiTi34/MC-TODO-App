@@ -1,0 +1,34 @@
+@import "../../../styles.scss";
+
+.todo-form {
+    left: 16px;
+    right: 16px;
+    border-radius: 17px;
+    background-color: $light-blue;
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    #todo-add {
+        margin: 20px 15px ;
+    }
+
+    #todo-content {
+        color: $grey;
+        input {
+            background-color: transparent;
+            border: none;
+            font-size: $font-small;
+            color: inherit;
+            -webkit-appearance: inherit;
+            outline-offset: 0;
+            outline: none;
+        }
+
+        input:focus {
+            color: $white;
+        }
+        
+    }
+}

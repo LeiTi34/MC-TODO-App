@@ -4,18 +4,17 @@
     margin-top: 10px ;
     border-radius: 17px;
     display: flex;
+    background-color: $light-blue;
+    align-items: center;
     #todo-check {
         margin: 20px 15px ;
     }
-    background-color: $light-blue;
     .todo-content {
         margin: 10px 0;
-
         #todo-name {
             font-size: 20px;
             margin: 0;
         }
-
         .todo-attributes {
             * {
                 margin: 0 10px 0 0;
@@ -27,6 +26,12 @@
                 font-size: 13px;
             }
         }
+    }    
+}
+
+.todo.done {
+    #todo-name {
+        text-decoration: line-through;
+        color: $grey;
     }
-    
 }

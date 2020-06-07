@@ -1,8 +1,9 @@
-<div class="todo">
-    <img id="todo-check" src="./assets/todo-square.svg">
+<div class="todo" [class.done]="toDo$.isDone" (click)="printTodo($event)">
+    <img *ngIf="!toDo$.isDone" (click)="toDo$.isDone=!toDo$.isDone" id="todo-check" src="./assets/todo-undone.svg">
+    <img *ngIf="toDo$.isDone" (click)="toDo$.isDone=!toDo$.isDone" id="todo-check" src="./assets/todo-done.svg">
     <div class="todo-content">
-        <p id="todo-name">Noodles & Sauce</p>
-        <div class="todo-attributes">
+        <p id="todo-name">{{toDo$.title}}</p>
+        <div *ngIf="toDo$.reminderDate || toDo$.dueDate" class="todo-attributes">
             <img src="./assets/calendar.svg">
             <p>Due tomorrow</p>
             <img src="./assets/spacer.svg">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDo } from 'src/app/interface/todo';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-overview',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  public $todos: ToDo[];
+
+  constructor(
+    public dataService: DataService
+  ) { }
 
   ngOnInit(): void {
   }
