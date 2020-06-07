@@ -7,10 +7,6 @@ import { User } from './entity/user.entity';
 
 @Controller()
 export class AppController {
-  constructor(
-      private readonly appService: AppService,
-      private authService: AuthService) {}
-
 @UseGuards(JwtAuthGuard)
   @Get('profile')
   getProfile(@Request() req) {
