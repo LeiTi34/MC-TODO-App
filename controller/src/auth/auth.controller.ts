@@ -1,10 +1,12 @@
 import { Controller, Post, Request, UseGuards } from '@nestjs/common';
 import { User } from 'src/entity/user.entity';
 import { LocalAuthGuard } from './local-auth.guard';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-  authService: any;
+    constructor(private readonly authService: AuthService) {}
+      
   @Post('register')
   register(@Request() req) {
     return this.authService.register(req.body as User);
