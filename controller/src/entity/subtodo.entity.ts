@@ -1,8 +1,8 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn, BaseEntity} from "typeorm";
 import { Todo } from "./todo.entity";
 
 @Entity()
-export class SubTodo {
+export class SubTodo extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 

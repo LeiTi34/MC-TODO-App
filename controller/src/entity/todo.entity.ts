@@ -1,10 +1,10 @@
-import {Entity, ManyToOne, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne} from "typeorm";
+import {Entity, ManyToOne, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne, BaseEntity} from "typeorm";
 import { Board } from "./board.entity";
 import { SubTodo } from "./subtodo.entity";
 import { Attachment } from "./attachment.entity";
 
 @Entity()
-export class Todo {
+export class Todo extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 

@@ -1,8 +1,8 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn} from "typeorm"
+import {Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, BaseEntity} from "typeorm"
 import { Todo } from "./todo.entity";
 
 @Entity()
-export class Attachment{
+export class Attachment extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;

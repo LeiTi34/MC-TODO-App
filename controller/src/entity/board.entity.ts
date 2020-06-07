@@ -1,11 +1,14 @@
-import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, ManyToOne, OneToMany, ManyToMany, JoinTable} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, ManyToOne, OneToMany, ManyToMany, JoinTable, BaseEntity} from "typeorm";
 import { User } from "./user.entity";
 import { Todo } from "./todo.entity";
 
 @Entity()
-export class Board {
+export class Board extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
+
+    @Column({nullable:false})
+    name: string;
 
     @ManyToOne(type => User, owner => owner.ownedBoards, {nullable: false})
     owner: User;
