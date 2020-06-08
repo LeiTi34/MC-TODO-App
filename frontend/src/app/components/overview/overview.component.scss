@@ -3,11 +3,12 @@
 .overview {
     background-color: $dark-blue;
     height: 100%;
-    margin: 16px -16px 0 -16px;
+    //margin: 16px -16px 0 -16px;
     border-top-left-radius: 38px;
     border-top-right-radius: 38px;
-    position: absolute;
+    position: fixed;
     width: 100%;
+    top: 6rem;
 
     //display: flex;
 
@@ -15,6 +16,11 @@
         margin: 16px;
         //height: 100%;
         //width: 100%;
+    }
+
+    .wrapper {
+        overflow-y: scroll;
+        height: calc(100vh - 250px);
     }
 }
 

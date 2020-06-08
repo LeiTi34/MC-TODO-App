@@ -3,12 +3,15 @@
     <img *ngIf="toDo$.isDone" (click)="toDo$.isDone=!toDo$.isDone" id="todo-check" src="./assets/todo-done.svg">
     <div class="todo-content">
         <p id="todo-name">{{toDo$.title}}</p>
-        <div *ngIf="toDo$.reminderDate || toDo$.dueDate" class="todo-attributes">
-            <img src="./assets/calendar.svg">
-            <p>Due tomorrow</p>
-            <img src="./assets/spacer.svg">
-            <img src="./assets/bell.svg">
-            <p>Reminder 8:00 am</p>
+        <div *ngIf="toDo$.reminderDate || toDo$.dueDate || toDo$.repeatInterval" class="todo-attributes">
+            <img *ngIf="toDo$.dueDate" src="./assets/calendar.svg">
+            <p   *ngIf="toDo$.dueDate">Tomorrow</p>
+            <img *ngIf="toDo$.reminderDate && toDo$.dueDate" src="./assets/spacer.svg">
+            <img *ngIf="toDo$.reminderDate" src="./assets/bell.svg">
+            <p   *ngIf="toDo$.reminderDate">Tomorrow 8:00 am</p>
+            <img *ngIf="toDo$.dueDate && toDo$.repeatInterval" src="./assets/spacer.svg">
+            <img *ngIf="toDo$.repeatInterval" src="./assets/repeat.svg">
+            <p   *ngIf="toDo$.repeatInterval">{{toDo$.repeatInterval}}</p>
         </div>
     </div>
 </div>

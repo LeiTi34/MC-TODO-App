@@ -21,6 +21,7 @@ export class TodoFormComponent implements OnInit {
       note: undefined,
       reminderDate: undefined,
       dueDate: undefined,
+      repeatInterval: undefined,
       createdDate: undefined,
       updateDate: undefined
     };
@@ -30,10 +31,12 @@ export class TodoFormComponent implements OnInit {
   }
 
   public createNewTodo(): void {
-    console.log(this.toDo$);
-
+    this.toDo$.position = this.dataService.$todos.length + 1;
+    this.toDo$.dueDate = new Date();
+    this.toDo$.repeatInterval = 'Monthly';
+    this.toDo$.createdDate = new Date();
+    this.toDo$.updateDate = new Date();
     this.dataService.addTodo(this.toDo$);
-
 
     this.toDo$ = {
       position: undefined,
@@ -42,6 +45,7 @@ export class TodoFormComponent implements OnInit {
       note: undefined,
       reminderDate: undefined,
       dueDate: undefined,
+      repeatInterval: undefined,
       createdDate: undefined,
       updateDate: undefined
     };
