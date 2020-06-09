@@ -1,0 +1,99 @@
+* {
+    /*Global reset*/
+    padding: 0;
+    margin: 0;
+    /*Color palette*/
+    --custom-light-blue: #181832;
+    --custom-grey: #9A9A9A;
+    --custom-white: #ECF1FF;
+    --custom-purple: #7E7EF7;
+    /*Fonts*/
+    --font1: "Segoe UI";
+    --font2: "Montserrat";
+    /*Font sizes*/
+    --big-font: 14pt;
+    --small-font-size: 10pt;
+}
+
+div.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+div.logo-img {
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+img#logo {
+    height: 100%;
+    width: 100%;
+}
+
+div.login-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--custom-light-blue);
+    color: var(--custom-grey);
+    font-family: var(--font1);
+    font-size: var(--small-font-size);
+    border-radius: 15px;
+    padding: 2.5rem;
+}
+
+a {
+    color: var(--custom-grey);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a#a-sign-up {
+    color: var(--custom-purple);
+}
+
+div.username img,
+div.password img {
+    height: 1rem;
+    margin-right: 0.3rem;
+}
+
+button {
+    text-transform: uppercase;
+    font-size: var(--big-font);
+    color: var(--custom-white);
+    border: var(--custom-purple);
+    border-radius: 15px;
+    height: 2.5rem;
+    width: 100%;
+    background-color: var(--custom-purple);
+    margin: 1rem 0 0.5rem 0;
+}
+
+input {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--custom-purple);
+    height: 2rem;
+}
+
+input::placeholder {
+    font-family: var(--font1);
+    font-size: var(--big-font);
+    font-weight: 500;
+    color: var(--custom-grey);
+}
+
+div.signup {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+label#missing-account {
+    margin-top: 2rem;
+}

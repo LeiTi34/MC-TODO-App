@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+    /*Color palette*/
+    --dark-blue: #101025;
+}
+
+html {
+    background: var(--dark-blue);
+}
