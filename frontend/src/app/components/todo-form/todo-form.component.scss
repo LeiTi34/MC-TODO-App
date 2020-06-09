@@ -16,7 +16,19 @@
     
 
     #todo-add {
-        margin: 20px 15px ;
+        min-width: 25px;
+        margin: 1.25rem;
+
+        .cls-1 {
+            fill: $accent;
+          }
+    
+        .cls-2 {
+            fill: none;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-width: 2px;
+        }
     }
 
     #todo-content {

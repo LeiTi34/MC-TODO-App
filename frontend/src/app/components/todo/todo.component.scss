@@ -1,19 +1,61 @@
 @import "../../../styles.scss";
 
+$transition-time: 250ms;
+
 .todo {
     margin-top: 10px ;
     border-radius: 17px;
     display: flex;
     background-color: $light-blue;
     align-items: center;
+
+    -webkit-transition: background-color $transition-time ease-out;
+    -moz-transition: background-color $transition-time ease-out;
+    -o-transition: background-color $transition-time ease-out;
+    transition: background-color $transition-time ease-out;
     #todo-check {
-        margin: 20px 15px ;
+        margin: 1.25rem;
+        min-width: 25px;
+
+        .cls-1 {
+            fill: transparent;
+            stroke: $white;
+
+            -webkit-transition: fill $transition-time ease-out;
+            -moz-transition: fill $transition-time ease-out;
+            -o-transition: fill $transition-time ease-out;
+            transition: fill $transition-time ease-out;
+
+        }
+        .cls-2, .cls-4 {
+            fill: none;
+        }
+        .cls-2 {
+            stroke: transparent;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2px;
+
+            -webkit-transition: stroke $transition-time ease-out;
+            -moz-transition: stroke $transition-time ease-out;
+            -o-transition: stroke $transition-time ease-out;
+            transition: stroke $transition-time ease-out;
+        }
+        .cls-3 {
+            stroke: none;
+        }
     }
+    
     .todo-content {
         margin: 10px 0;
         #todo-name {
-            font-size: 20px;
+            font-size: $font-small;
             margin: 0;
+
+            -webkit-transition: color $transition-time ease-out;
+            -moz-transition: color $transition-time ease-out;
+            -o-transition: color $transition-time ease-out;
+            transition: color $transition-time ease-out;
         }
         .todo-attributes {
             * {
@@ -22,16 +64,64 @@
             width: max-content;
             display: flex;
             p {
-                color: $purple;
+                color: $accent;
                 font-size: 13px;
+
+                -webkit-transition: color $transition-time ease-out;
+                -moz-transition: color $transition-time ease-out;
+                -o-transition: color $transition-time ease-out;
+                transition: color $transition-time ease-out;
+            }
+
+            #calendar, #bell, #repeat, #spacer {
+                align-self: center;
+                .cls-1 {
+                    fill: $accent;
+
+                    -webkit-transition: fill $transition-time ease-out;
+                    -moz-transition: fill $transition-time ease-out;
+                    -o-transition: fill $transition-time ease-out;
+                    transition: fill $transition-time ease-out;
+                }
             }
         }
     }    
 }
 
 .todo.done {
+    #todo-check {
+        .cls-1 {
+            fill: $accent;
+            stroke: transparent;
+          }
+    
+          .cls-2, .cls-4 {
+            fill: none;
+          }
+    
+          .cls-2 {
+            stroke: $white;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2px;
+          }
+    
+          .cls-3 {
+            stroke: none;
+          }
+    }
     #todo-name {
         text-decoration: line-through;
         color: $grey;
+    }
+    .todo-content .todo-attributes {
+        #calendar, #bell, #repeat, #spacer {
+            .cls-1 {
+                fill: $grey;
+            }
+        }
+        p {
+            color: $grey;
+        }
     }
 }

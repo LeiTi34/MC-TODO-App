@@ -3,6 +3,7 @@ export interface ToDo {
     title: string;
     isDone: boolean;
     note?: string;
+    subTodo?: string;
     reminderDate?: Date;
     dueDate?: Date;
     repeatInterval?: string;

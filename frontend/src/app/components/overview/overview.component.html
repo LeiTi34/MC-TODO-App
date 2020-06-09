@@ -4,9 +4,7 @@
             <p>Sortiert nach Erstelldatum</p>
         </div>
         <div class="wrapper">
-            
-                <app-todo [toDo$]="toDo" *ngFor="let toDo of dataService.$todos"></app-todo>
-            
+            <app-todo [toDo$]="toDo" *ngFor="let toDo of dataService.$todos"></app-todo>
         </div>
     </div>
 </div>

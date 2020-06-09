@@ -8,6 +8,8 @@ import { TodoComponent } from './components/todo/todo.component';
 import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { TodoFormComponent } from './components/todo-form/todo-form.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

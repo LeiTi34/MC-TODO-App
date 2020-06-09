@@ -1,10 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ToDo } from 'src/app/interface/todo';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(':enter', animate('1s ease-out')),
+        transition(':leave', animate('1s ease-in'))
+      ]
+    )
+  ]
 })
 export class TodoComponent implements OnInit {
 
@@ -20,6 +30,7 @@ export class TodoComponent implements OnInit {
       console.log(this.toDo$);
     }
   }
+
 
   /*
   prettyDate(time){

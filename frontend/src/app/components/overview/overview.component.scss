@@ -20,7 +20,17 @@
 
     .wrapper {
         overflow-y: scroll;
-        height: calc(100vh - 250px);
+        overflow-x: hidden;
+        height: calc(100vh - 250px);  
     }
+
+    // Scrollbar
+    ::-webkit-scrollbar {
+        width: 0rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: $accent;
+    } 
 }
 

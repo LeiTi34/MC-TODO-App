@@ -1,14 +1,8 @@
 @import "../../../styles.scss";
 
 .nav-mobile {
-    //margin-bottom: 15px;
     display: flex;
     text-align: center;
-    //position: fixed;
-    //top: 0;
-    //left: 16px;
-    //right: 16px;
-    //z-index: 1;
     width: 100%;
     background: $light-blue;
 
@@ -19,11 +13,29 @@
         #nav-mobile-back {
             float: left;
             margin: 1.2rem;
+
+            .cls-1 {
+                fill: $accent;
+            }
+        
+            .cls-2 {
+                fill: $accent;
+                fill-opacity: 0.45;
+            }
         }
 
         #nav-mobile-search {
             float: right;
             margin: 1.2rem;
+
+            .cls-1 {
+                isolation: isolate;
+            }
+        
+            .cls-2 {
+                fill: $white;
+                stroke: $white;
+            }
         }
     }
 

@@ -33,6 +33,7 @@ export class TodoFormComponent implements OnInit {
   public createNewTodo(): void {
     this.toDo$.position = this.dataService.$todos.length + 1;
     this.toDo$.dueDate = new Date();
+    this.toDo$.reminderDate = new Date();
     this.toDo$.repeatInterval = 'Monthly';
     this.toDo$.createdDate = new Date();
     this.toDo$.updateDate = new Date();
