@@ -1,13 +1,13 @@
 @import "../../../styles.scss";
 
-.nav-mobile {
+.nav-detail-mobile {
     display: flex;
     text-align: center;
     width: 100%;
     background: $light-blue;
 
     div {
-        flex-grow: 1;
+        //flex-grow: 1;
         align-self: center;
 
         #back {
@@ -15,12 +15,11 @@
             margin: 1.2rem;
 
             .cls-1 {
-                fill: $accent;
-            }
+                fill: #7e7ef7;
+              }
         
             .cls-2 {
-                fill: $accent;
-                fill-opacity: 0.45;
+                fill: rgba(126,126,247,0.45);
             }
         }
 

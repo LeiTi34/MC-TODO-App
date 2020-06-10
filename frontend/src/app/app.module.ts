@@ -9,6 +9,12 @@ import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavDetailMobileComponent } from './components/nav-detail-mobile/nav-detail-mobile.component';
+import { SubtodoComponent } from './components/subtodo/subtodo.component';
+import { MobileBoardComponent } from './views/mobile-board/mobile-board.component';
+import { MobileTodoComponent } from './views/mobile-todo/mobile-todo.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OverviewComponent,
     TodoComponent,
     NavMobileComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    TodoDetailComponent,
+    NavDetailMobileComponent,
+    SubtodoComponent,
+    MobileBoardComponent,
+    MobileTodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

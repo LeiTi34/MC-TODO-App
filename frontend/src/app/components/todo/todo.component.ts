@@ -1,36 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ToDo } from 'src/app/interface/todo';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { Todo } from 'src/app/interfaces/todo';
+
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss'],
-  animations: [
-    trigger(
-      'inOutAnimation',
-      [
-        transition(':enter', animate('1s ease-out')),
-        transition(':leave', animate('1s ease-in'))
-      ]
-    )
-  ]
+  styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
 
-  @Input() toDo$: ToDo;
+  @Input() toDo$: Todo;
+  @Input() selectedTodo: Todo;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  printTodo(event: any): void {
-    if (event.target === event.currentTarget) {
-      console.log(this.toDo$);
-    }
-  }
-
 
   /*
   prettyDate(time){

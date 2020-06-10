@@ -3,9 +3,8 @@
 .overview {
     background-color: $dark-blue;
     height: 100%;
-    //margin: 16px -16px 0 -16px;
-    border-top-left-radius: 38px;
-    border-top-right-radius: 38px;
+    border-top-left-radius: 2.375rem;
+    border-top-right-radius: 2.375rem;
     position: fixed;
     width: 100%;
     top: 6rem;
@@ -13,7 +12,7 @@
     //display: flex;
 
     .content {
-        margin: 16px;
+        margin: 1rem;
         //height: 100%;
         //width: 100%;
     }
@@ -21,7 +20,7 @@
     .wrapper {
         overflow-y: scroll;
         overflow-x: hidden;
-        height: calc(100vh - 250px);  
+        height: calc(100vh - 15.625rem);  
     }
 
     // Scrollbar

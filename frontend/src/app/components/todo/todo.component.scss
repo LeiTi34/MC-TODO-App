@@ -3,8 +3,8 @@
 $transition-time: 250ms;
 
 .todo {
-    margin-top: 10px ;
-    border-radius: 17px;
+    margin-top: 0.5rem ;
+    border-radius: 1rem;
     display: flex;
     background-color: $light-blue;
     align-items: center;
@@ -15,7 +15,7 @@ $transition-time: 250ms;
     transition: background-color $transition-time ease-out;
     #todo-check {
         margin: 1.25rem;
-        min-width: 25px;
+        min-width: 1.5rem;
 
         .cls-1 {
             fill: transparent;
@@ -47,7 +47,7 @@ $transition-time: 250ms;
     }
     
     .todo-content {
-        margin: 10px 0;
+        margin: 0.3rem 0 0.75rem 0;
         #todo-name {
             font-size: $font-small;
             margin: 0;
@@ -59,13 +59,15 @@ $transition-time: 250ms;
         }
         .todo-attributes {
             * {
-                margin: 0 10px 0 0;
+                margin: 0 0.4rem 0 0;
             }
             width: max-content;
             display: flex;
+            line-height: 1;
+            margin-top: 0.2rem;
             p {
                 color: $accent;
-                font-size: 13px;
+                font-size: 0.8rem;
 
                 -webkit-transition: color $transition-time ease-out;
                 -moz-transition: color $transition-time ease-out;

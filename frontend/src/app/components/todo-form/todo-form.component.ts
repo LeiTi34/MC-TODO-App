@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ToDo } from 'src/app/interface/todo';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { Todo } from 'src/app/interfaces/todo';
+import { SubTodo } from 'src/app/interfaces/sub-todo';
 
 @Component({
   selector: 'app-todo-form',
@@ -9,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class TodoFormComponent implements OnInit {
 
-  public toDo$: ToDo;
+  @Input() toDo$: Todo;
 
   constructor(
     public dataService: DataService
@@ -19,6 +20,7 @@ export class TodoFormComponent implements OnInit {
       title: undefined,
       isDone: false,
       note: undefined,
+      subTodos: [],
       reminderDate: undefined,
       dueDate: undefined,
       repeatInterval: undefined,
@@ -37,6 +39,13 @@ export class TodoFormComponent implements OnInit {
     this.toDo$.repeatInterval = 'Monthly';
     this.toDo$.createdDate = new Date();
     this.toDo$.updateDate = new Date();
+
+    const subTodo: SubTodo = {
+      position: this.toDo$.subTodos.length + 1,
+      title: 'Nooodles',
+      isDone: false
+    };
+    
     this.dataService.addTodo(this.toDo$);
 
     this.toDo$ = {
@@ -44,6 +53,7 @@ export class TodoFormComponent implements OnInit {
       title: undefined,
       isDone: false,
       note: undefined,
+      subTodos: [undefined],
       reminderDate: undefined,
       dueDate: undefined,
       repeatInterval: undefined,

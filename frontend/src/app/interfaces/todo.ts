@@ -1,9 +1,11 @@
-export interface ToDo {
+import { SubTodo } from './sub-todo';
+
+export interface Todo {
     position: number;
     title: string;
     isDone: boolean;
     note?: string;
-    subTodo?: string;
+    subTodos?: SubTodo[];
     reminderDate?: Date;
     dueDate?: Date;
     repeatInterval?: string;

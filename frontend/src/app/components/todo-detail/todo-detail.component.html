@@ -1,0 +1,38 @@
+<div class="todo-detail">
+    <div class="content">
+        <div class="todo">
+            <div class="todo-main" [class.done]="false">
+                <svg id="todo-check" width="25" height="25" viewBox="0 0 25 25">
+                    <g transform="translate(-15 -19.348)">
+                        <g class="cls-1" transform="translate(15 19.348)">
+                          <rect class="cls-3" width="25" height="25" rx="8"/>
+                          <rect class="cls-4" x="0.5" y="0.5" width="24" height="24" rx="7.5"/>
+                        </g>
+                        <path class="cls-2" d="M3.3,14.605l6.828,2.649L9.959,2.687" transform="matrix(0.875, 0.485, -0.485, 0.875, 25.947, 19.051)"/>
+                      </g>
+                </svg>
+    
+                <div class="todo-content">
+                    <p id="todo-name">{{currentTodo.title}}</p>
+                </div>
+            </div>
+
+            <app-subtodo [selectedSubTodo]="subTodo" *ngFor="let subTodo of dataService.$selectedTodo.subTodos"></app-subtodo>
+
+            <div class="todo-add">
+                <svg id="add" width="15.186" height="14.954" viewBox="0 0 15.186 14.954">
+                    <g (click)="addSubTodo()" transform="translate(1 -3.335)">
+                      <path class="cls-1" d="M0,0H13.186" transform="translate(0 10.881)"/>
+                      <path class="cls-1" d="M0,0H12.954" transform="translate(6.653 4.335) rotate(90)"/>
+                    </g>
+                  </svg>
+
+                  <div class="todo-content">
+                    <!--<p id="todo-name">Noodles & Sauce</p>-->
+                    <input type="text" [(ngModel)]="subTodo$.title" placeholder="Next step" (keyup.enter)="addSubTodo()">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
