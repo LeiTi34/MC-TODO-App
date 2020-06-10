@@ -79,7 +79,7 @@ input {
     background: none;
     border: 0;
     border-bottom: 1px solid var(--custom-purple);
-    height: 2rem;
+    height: 2.7rem;
 }
 
 input::placeholder {
