@@ -1,5 +1,5 @@
 <div class="todo" [class.done]="selectedTodo.isDone">
-    <svg (click)="selectedTodo.isDone=!selectedTodo.isDone" id="todo-check" width="25" height="25" viewBox="0 0 25 25">
+    <svg (click)="triggerDone()" id="todo-check" width="25" height="25" viewBox="0 0 25 25">
         <g transform="translate(-15 -19.348)">
             <g class="cls-1" transform="translate(15 19.348)">
               <rect class="cls-3" width="25" height="25" rx="8"/>
@@ -9,7 +9,7 @@
           </g>
     </svg>
       
-    <div class="todo-content">
+    <div class="todo-content" (click)="openTodo()">
         <p id="todo-name">{{selectedTodo.title}}</p>
         <div *ngIf="selectedTodo.reminderDate || selectedTodo.dueDate || selectedTodo.repeatInterval" class="todo-attributes">
             <svg *ngIf="selectedTodo.dueDate" id="calendar" width="11.469" height="13.107" viewBox="0 0 11.469 13.107">

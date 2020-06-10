@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from 'src/app/interfaces/todo';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
@@ -12,9 +14,21 @@ export class TodoComponent implements OnInit {
   @Input() toDo$: Todo;
   @Input() selectedTodo: Todo;
 
-  constructor() { }
+  constructor(
+    //public dataService: DataService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openTodo(): void {
+    this.router.navigate(['/todo']);
+  }
+
+  triggerDone(): void {
+    this.selectedTodo.isDone = !this.selectedTodo.isDone;
+    //this.dataService.updateTodo(this.toDo$);
   }
 
   /*

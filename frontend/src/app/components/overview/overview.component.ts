@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Todo } from 'src/app/interfaces/todo';
-import { TODOS } from 'src/app/mock-todos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -13,20 +13,23 @@ export class OverviewComponent implements OnInit {
   @Input() toDo$: Todo;
 
   constructor(
-    public dataService: DataService
+    public dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit(): void { }
 
 
   onSelect(todo: Todo): void {
-    console.log('Event: ' + todo);
     this.dataService.selectTodo(todo);
     console.log('Selected ToDo:' + this.dataService.$selectedTodo.title);
     this.dataService.$selectedTodo.subTodos.forEach(x => {
       console.log('SubTodo: ' + x.title);
     });
+    //this.router.navigate(['/todo']);
   }
+
+  
 
   printTodo(event: any): void {
     if (event.target === event.currentTarget) {

@@ -48,6 +48,7 @@ $transition-time: 250ms;
     
     .todo-content {
         margin: 0.3rem 0 0.75rem 0;
+        width: 100%;
         #todo-name {
             font-size: $font-small;
             margin: 0;

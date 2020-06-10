@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Todo } from 'src/app/interfaces/todo';
-import { SubTodo } from 'src/app/interfaces/sub-todo';
 
 @Component({
   selector: 'app-todo-form',
@@ -33,19 +32,12 @@ export class TodoFormComponent implements OnInit {
   }
 
   public createNewTodo(): void {
+    if (!this.toDo$.title) {
+      return;
+    }
     this.toDo$.position = this.dataService.$todos.length + 1;
-    this.toDo$.dueDate = new Date();
-    this.toDo$.reminderDate = new Date();
-    this.toDo$.repeatInterval = 'Monthly';
     this.toDo$.createdDate = new Date();
     this.toDo$.updateDate = new Date();
-
-    const subTodo: SubTodo = {
-      position: this.toDo$.subTodos.length + 1,
-      title: 'Nooodles',
-      isDone: false
-    };
-    
     this.dataService.addTodo(this.toDo$);
 
     this.toDo$ = {
