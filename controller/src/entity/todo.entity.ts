@@ -1,48 +1,86 @@
-import {Entity, ManyToOne, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne, BaseEntity} from "typeorm";
-import { Board } from "./board.entity";
-import { SubTodo } from "./subtodo.entity";
-import { Attachment } from "./attachment.entity";
+import {
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+  OneToOne,
+  BaseEntity,
+  Unique,
+} from 'typeorm';
+import { Board } from './board.entity';
+import { SubTodo } from './subtodo.entity';
+import { Attachment } from './attachment.entity';
+
+enum RepeatInterval {
+  None,
+  Daily,
+  Weekly,
+  Monthly,
+  Yearly,
+}
 
 @Entity()
+@Unique(['position', 'board'])
 export class Todo extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({
-        nullable: false,
-    })
-    title: string;
+  @Column({
+    nullable: false,
+  })
+  title: string;
 
-    @Column({
-        nullable: false,
-    })
-    isDone: boolean;
+  @Column({
+    nullable: false,
+  })
+  isDone: boolean;
 
-    @Column()
-    note: string;
+  @Column()
+  note: string;
 
-    @OneToMany(type => SubTodo, subTodo => subTodo.todo, {
-        cascade:["remove", "update"]
-    })
-    subTodos: SubTodo[];
+  @OneToMany(
+    type => SubTodo,
+    subTodo => subTodo.todo,
+    {
+      cascade: ['remove', 'update'],
+    },
+  )
+  subTodos: SubTodo[];
 
-    @OneToOne(type => Attachment, attachment => attachment.todo, {
-        cascade:["remove", "update"]
-    })
-    attachment: Attachment;
+  @OneToOne(
+    type => Attachment,
+    attachment => attachment.todo,
+    {
+      cascade: ['remove', 'update'],
+    },
+  )
+  attachment: Attachment;
 
-    @Column()
-    reminderDate: Date
+  @Column()
+  reminderDate: Date;
 
-    @Column()
-    dueDate: Date
+  @Column()
+  dueDate: Date;
 
-    @ManyToOne(type => Board, board => board.todos, {nullable: false})
-    board: Board;
+  @Column('enum', { enum: RepeatInterval, default: RepeatInterval.None })
+  repeatInterval: RepeatInterval;
 
-    @CreateDateColumn()
-    createdDate: Date;
+  @ManyToOne(
+    type => Board,
+    board => board.todos,
+    { nullable: false },
+  )
+  board: Board;
 
-    @UpdateDateColumn()
-    updateDate: Date;
+  @Column()
+  position: Number;
+
+  @CreateDateColumn()
+  createdDate: Date;
+
+  @UpdateDateColumn()
+  updateDate: Date;
 }

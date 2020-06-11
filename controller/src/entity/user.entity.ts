@@ -1,34 +1,56 @@
-import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToMany, BaseEntity} from "typeorm";
-import { Board } from "./board.entity";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+  ManyToMany,
+  BaseEntity,
+} from 'typeorm';
+import { Board } from './board.entity';
 
 @Entity()
 export class User extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({
-        unique: true,
-        nullable: false,
-    })
-    username: string;
+  @Column({
+    unique: true,
+    nullable: false,
+  })
+  username: string;
 
-    @Column({
-        nullable: false,
-        select: false,
-    })
-    password: string;
+  @Column({
+    unique: true,
+    nullable: false,
+  })
+  email: string;
 
-    @OneToMany(type => Board, owendBoard => owendBoard.owner, {
-        cascade:["remove", "update"]
-    })
-    ownedBoards: Board[];
+  @Column({
+    nullable: false,
+    select: false,
+  })
+  password: string;
 
-    @ManyToMany(type => Board, attendedBoard => attendedBoard.attendees)
-    attendedBoards: Board[]
+  @OneToMany(
+    type => Board,
+    owendBoard => owendBoard.owner,
+    {
+      cascade: ['remove', 'update'],
+    },
+  )
+  ownedBoards: Board[];
 
-    @CreateDateColumn()
-    createdDate: Date;
+  @ManyToMany(
+    type => Board,
+    attendedBoard => attendedBoard.attendees,
+  )
+  attendedBoards: Board[];
 
-    @UpdateDateColumn()
-    updateDate: Date;
+  @CreateDateColumn()
+  createdDate: Date;
+
+  @UpdateDateColumn()
+  updateDate: Date;
 }
