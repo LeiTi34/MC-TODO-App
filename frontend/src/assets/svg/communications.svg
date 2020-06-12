@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.071" height="23.354" viewBox="0 0 21.071 23.354">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9a9a9a;
+      }
+    </style>
+  </defs>
+  <g id="communications" transform="translate(-1 -0.05)">
+    <path id="Pfad_41" data-name="Pfad 41" class="cls-1" d="M21,7.483,12.8.577a2.294,2.294,0,0,0-2.927,0L1.8,7.483l9.6,7.492Z" transform="translate(0.136 0)"/>
+    <path id="Pfad_42" data-name="Pfad 42" class="cls-1" d="M12.238,15.926a1.065,1.065,0,0,1-1.4,0L1,8.317V19.672a2.348,2.348,0,0,0,2.341,2.341H19.73a2.348,2.348,0,0,0,2.341-2.341V8.2Z" transform="translate(0 1.391)"/>
+  </g>
+</svg>

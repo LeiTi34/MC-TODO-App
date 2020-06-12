@@ -1,0 +1,139 @@
+@import '../../../styles.scss';
+* {
+    padding: 0;
+    margin: 0;
+}
+
+div.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+div.logo-img {
+    width: 10rem;
+    margin-bottom: 2rem;
+    img#logo {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+div.login-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $light-blue;
+    color: $grey;
+    font-family: $font1;
+    font-size: $font-small;
+    border-radius: 15px;
+    padding: 2.5rem;
+    width: 18rem;
+}
+
+a {
+    color: $grey;
+    text-decoration: none;
+}
+
+a#a-sign-up {
+    color: $accent;
+    font-weight: 600;
+}
+
+div.username,
+div.password {
+    border-bottom: 0.8px solid $accent;
+    margin-bottom: 0.3rem;
+}
+
+div.username {
+    margin-bottom: 1.3rem;
+}
+
+div.username img,
+div.password img {
+    height: 1.3rem;
+    margin-right: 0.5rem;
+}
+
+button {
+    text-transform: uppercase;
+    font-size: $font-big;
+    color: $white;
+    border: $accent;
+    border-radius: 15px;
+    height: 3.3rem;
+    width: 100%;
+    background-color: $accent;
+    margin: 1rem 0 0.5rem 0;
+}
+
+input[type=text],
+input[type=password] {
+    background: none;
+    border: 0;
+    height: 2.5rem;
+    width: 15rem;
+}
+
+input::placeholder,
+input[type=text],
+input[type=password] {
+    font-family: $font1;
+    font-size: $font-big;
+    font-weight: 400;
+    color: $grey;
+}
+
+div.remember-me {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    margin-left: 0.5rem;
+}
+
+input[type=checkbox] {
+    height: 2.5rem;
+    width: 1.3rem;
+    margin-right: 0.5rem;
+}
+
+div.signup {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+label#missing-account {
+    margin-top: 2rem;
+}
+
+a#forgot-pw {
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+    div.logo-img {
+        width: 100%;
+        height: 12rem;
+    }
+    div.login-form {
+        margin-top: 4rem;
+    }
+    div.login-data {
+        background-color: $dark-blue;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    div.logo-img {
+        width: 100%;
+        height: 10rem;
+        margin-bottom: 1rem;
+    }
+}
