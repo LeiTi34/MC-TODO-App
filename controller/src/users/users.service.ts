@@ -9,7 +9,10 @@ export class UsersService {
 
   async findOne(username: string): Promise<User | undefined> {
 
-    return await this.repository.findOne({username: username});
+    return await this.repository.findOne({
+        select: ["id", "username", "password", "createdDate", "updateDate"],
+        where: {username: username}
+    });
   }
 
   async save(user: User): Promise<User | undefined> {

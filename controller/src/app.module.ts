@@ -6,9 +6,10 @@ import { Connection } from 'typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { BoardsModule } from './boards/boards.module';
+import { TodosModule } from './todos/todos.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), AuthModule, UsersModule, BoardsModule],
+  imports: [TypeOrmModule.forRoot(), AuthModule, UsersModule, BoardsModule, TodosModule],
   controllers: [AppController],
   providers: [AppService],
 })

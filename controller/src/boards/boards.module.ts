@@ -4,8 +4,8 @@ import { BoardsService } from './boards.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-    imports: [TypeOrmModule.forRoot()],
+  imports: [TypeOrmModule.forRoot()],
   controllers: [BoardsController],
-  providers: [BoardsService]
+  providers: [BoardsService],
 })
 export class BoardsModule {}
