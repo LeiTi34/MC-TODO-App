@@ -35,10 +35,11 @@ export class Todo extends BaseEntity {
 
   @Column({
     nullable: false,
+    default: false,
   })
   isDone: boolean;
 
-  @Column()
+  @Column({ nullable: true })
   note: string;
 
   @OneToMany(
@@ -59,10 +60,10 @@ export class Todo extends BaseEntity {
   )
   attachment: Attachment;
 
-  @Column()
+  @Column({ nullable: true })
   reminderDate: Date;
 
-  @Column()
+  @Column({ nullable: true })
   dueDate: Date;
 
   @Column('enum', { enum: RepeatInterval, default: RepeatInterval.None })
@@ -75,7 +76,7 @@ export class Todo extends BaseEntity {
   )
   board: Board;
 
-  @Column()
+  @Column({ nullable: false })
   position: Number;
 
   @CreateDateColumn()
