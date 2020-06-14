@@ -34,7 +34,7 @@ export class User extends BaseEntity {
   password: string;
 
   @OneToMany(
-    type => Board,
+    () => Board,
     owendBoard => owendBoard.owner,
     {
       cascade: ['remove', 'update'],
@@ -43,7 +43,7 @@ export class User extends BaseEntity {
   ownedBoards: Board[];
 
   @ManyToMany(
-    type => Board,
+    () => Board,
     attendedBoard => attendedBoard.attendees,
   )
   attendedBoards: Board[];
