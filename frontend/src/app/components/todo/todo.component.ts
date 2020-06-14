@@ -11,11 +11,10 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class TodoComponent implements OnInit {
 
-  @Input() toDo$: Todo;
   @Input() selectedTodo: Todo;
 
   constructor(
-    //public dataService: DataService,
+    public dataService: DataService,
     private router: Router
   ) { }
 
@@ -23,12 +22,9 @@ export class TodoComponent implements OnInit {
   }
 
   openTodo(): void {
+    console.log('Select/Open todo: ' + this.selectedTodo.title);
+    this.dataService.selectedTodo = this.selectedTodo;
     this.router.navigate(['/todo']);
-  }
-
-  triggerDone(): void {
-    this.selectedTodo.isDone = !this.selectedTodo.isDone;
-    //this.dataService.updateTodo(this.toDo$);
   }
 
   /*

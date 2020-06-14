@@ -17,9 +17,13 @@ $font-big: 1.5rem;
 
 html { 
     background: $light-blue; 
+    height: 100%;
+    width: 100%;
 }
 body {
     margin: 0;
+    height: 100%;
+    width: 100%;
 }
 h1,h2,h3,h4,h5,h6 {
     color: $white;

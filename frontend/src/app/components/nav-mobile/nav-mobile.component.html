@@ -1,6 +1,6 @@
 <div class="nav-mobile">
     <div>
-        <svg id="back" width="23" height="23" viewBox="0 0 21 21">
+        <svg routerLink="/boards" id="back" width="23" height="23" viewBox="0 0 21 21">
             <g transform="translate(-16 -37)">
               <rect id="Rechteck_8" data-name="Rechteck 8" class="cls-1" width="10" height="10" rx="3" transform="translate(16 37)"/>
               <rect id="Rechteck_9" data-name="Rechteck 9" class="cls-2" width="10" height="10" rx="3" transform="translate(27 37)"/>
@@ -9,7 +9,7 @@
             </g>
           </svg>
     </div>
-    <h1>Default board</h1>
+    <h1>{{dataService.selectedBoard.name}}</h1>
     <div>
         <svg id="search" width="21.585" height="21.585" viewBox="0 0 21.585 21.585">
           <g class="cls-1" transform="translate(11.5 -9.5)">

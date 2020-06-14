@@ -35,7 +35,7 @@ export class TodoFormComponent implements OnInit {
     if (!this.toDo$.title) {
       return;
     }
-    this.toDo$.position = this.dataService.$todos.length + 1;
+    this.toDo$.position = this.dataService.selectedBoard.todos.length + 1;
     this.toDo$.createdDate = new Date();
     this.toDo$.updateDate = new Date();
     this.dataService.addTodo(this.toDo$);

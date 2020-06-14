@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Todo } from '../interfaces/todo';
 import { SubTodo } from '../interfaces/sub-todo';
-import { TODOS } from '../mock-todos';
+import { Board } from '../interfaces/board';
+import { BOARDS } from '../mock-boards';
 
 
 @Injectable({
@@ -9,26 +10,45 @@ import { TODOS } from '../mock-todos';
 })
 export class DataService {
 
-  public $todos: Todo[] = TODOS;
-  public $selectedTodo: Todo;
-  //public $selectedBoard: Board;
+  //public $todos: Todo[] = TODOS;
+  public boards: Board[] = BOARDS;
+  public selectedBoard: Board = BOARDS[0];
+  public selectedTodo: Todo;
 
   constructor() { }
 
-  public selectTodo(todo: Todo): void {
-    this.$selectedTodo = todo;
-  }
-
   public addTodo(object: Todo): void {
-    this.$todos.push(object);
-    console.log(this.$todos);
+    this.selectedBoard.todos.push(object);
+    console.log('Added ' + object.title + ' to ' + this.selectedBoard.name);
+    console.log(this.boards);
   }
 
   public updateTodo(object: Todo): void {
-    const updateItem = this.$todos.find(x => x.position === object.position);
-    const index = this.$todos.indexOf(updateItem);
-    this.$todos[index] = object;
-    this.selectTodo(object);
-    console.log(this.$todos);
+    const updateItem = this.selectedBoard.todos.find(x => x.position === object.position);
+    const index = this.selectedBoard.todos.indexOf(updateItem);
+    this.selectedBoard.todos[index] = object;
+    this.selectedTodo = object;
+    console.log('Updated ' + object.title);
+    //console.log(object);
+  }
+
+  triggerDone(object: Todo): void {
+    object.isDone = !object.isDone;
+    this.updateTodo(object);
+    console.log('Toggled: ' + this.selectedTodo.title + ' : ' + this.selectedTodo.isDone);
+  }
+
+  triggerSubDone(object: SubTodo): void {
+    const updateItem = this.selectedTodo.subTodos.find(x => x.position === object.position);
+    const index = this.selectedTodo.subTodos.indexOf(updateItem);
+    object.isDone = !object.isDone;
+    this.selectedTodo.subTodos[index] = object;
+  }
+
+  deleteSub(object: SubTodo): void {
+    const updateItem = this.selectedTodo.subTodos.find(x => x.position === object.position);
+    const index = this.selectedTodo.subTodos.indexOf(updateItem);
+    this.selectedTodo.subTodos.splice(index, 1);
+    this.updateTodo(this.selectedTodo);
   }
 }

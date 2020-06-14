@@ -15,6 +15,9 @@ import { NavDetailMobileComponent } from './components/nav-detail-mobile/nav-det
 import { SubtodoComponent } from './components/subtodo/subtodo.component';
 import { MobileBoardComponent } from './views/mobile-board/mobile-board.component';
 import { MobileTodoComponent } from './views/mobile-todo/mobile-todo.component';
+import { MobileBoardsComponent } from './views/mobile-boards/mobile-boards.component';
+import { NavBoardsMobileComponent } from './components/nav-boards-mobile/nav-boards-mobile.component';
+import { BoardComponent } from './components/board/board.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MobileTodoComponent } from './views/mobile-todo/mobile-todo.component';
     NavDetailMobileComponent,
     SubtodoComponent,
     MobileBoardComponent,
-    MobileTodoComponent
+    MobileTodoComponent,
+    MobileBoardsComponent,
+    NavBoardsMobileComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,

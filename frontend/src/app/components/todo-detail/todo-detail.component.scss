@@ -74,6 +74,34 @@ $transition-time: 250ms;
                 }    
             }
 
+            .todo-main.done {
+                #todo-check {
+                    .cls-1 {
+                        fill: $accent;
+                        stroke: transparent;
+                      }
+                
+                      .cls-2, .cls-4 {
+                        fill: none;
+                      }
+                
+                      .cls-2 {
+                        stroke: $white;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
+                      }
+                
+                      .cls-3 {
+                        stroke: none;
+                      }
+                }
+                #todo-name {
+                    text-decoration: line-through;
+                    color: $grey;
+                }
+            }
+
             .todo-add {
                 display: flex;
                 align-items: center;
@@ -131,36 +159,10 @@ $transition-time: 250ms;
                 }
             }
         }
+    }
 
         
-        .todo.done {
-            #todo-check {
-                .cls-1 {
-                    fill: $accent;
-                    stroke: transparent;
-                  }
-            
-                  .cls-2, .cls-4 {
-                    fill: none;
-                  }
-            
-                  .cls-2 {
-                    stroke: $white;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                    stroke-width: 2px;
-                  }
-            
-                  .cls-3 {
-                    stroke: none;
-                  }
-            }
-            #todo-name {
-                text-decoration: line-through;
-                color: $grey;
-            }
-        }
-    }
+   
 
     
 }

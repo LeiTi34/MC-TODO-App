@@ -18,22 +18,4 @@ export class OverviewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { }
-
-
-  onSelect(todo: Todo): void {
-    this.dataService.selectTodo(todo);
-    console.log('Selected ToDo:' + this.dataService.$selectedTodo.title);
-    this.dataService.$selectedTodo.subTodos.forEach(x => {
-      console.log('SubTodo: ' + x.title);
-    });
-    //this.router.navigate(['/todo']);
-  }
-
-  
-
-  printTodo(event: any): void {
-    if (event.target === event.currentTarget) {
-      console.log(this.toDo$);
-    }
-  }
 }

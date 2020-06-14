@@ -10,7 +10,7 @@ import { SubTodo } from 'src/app/interfaces/sub-todo';
 })
 export class TodoDetailComponent implements OnInit {
 
-  @Input() subTodo$: SubTodo;
+  subTodo$: SubTodo;
   @Input() currentTodo: Todo;
 
   constructor(
@@ -24,10 +24,14 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.currentTodo = this.dataService.selectedTodo;
   }
 
   public addSubTodo(): void {
-    this.subTodo$.position = this.dataService.$selectedTodo.subTodos.length + 1;
+    if (!this.subTodo$.title) {
+      return;
+    }
+    this.subTodo$.position = this.dataService.selectedTodo.subTodos.length + 1;
     this.currentTodo.subTodos.push(this.subTodo$);
     this.dataService.updateTodo(this.currentTodo);
     console.log(this.currentTodo);
@@ -37,5 +41,10 @@ export class TodoDetailComponent implements OnInit {
       title: undefined,
       isDone: false
     };
+  }
+
+  triggerDone(): void {
+    this.currentTodo.isDone = !this.currentTodo.isDone;
+    this.dataService.updateTodo(this.currentTodo);
   }
 }

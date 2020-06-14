@@ -1,8 +1,8 @@
 <div class="todo-detail">
     <div class="content">
         <div class="todo">
-            <div class="todo-main" [class.done]="false">
-                <svg id="todo-check" width="25" height="25" viewBox="0 0 25 25">
+            <div class="todo-main" [class.done]="dataService.selectedTodo.isDone">
+                <svg (click)="dataService.triggerDone(currentTodo)"  id="todo-check" width="25" height="25" viewBox="0 0 25 25">
                     <g transform="translate(-15 -19.348)">
                         <g class="cls-1" transform="translate(15 19.348)">
                           <rect class="cls-3" width="25" height="25" rx="8"/>
@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <app-subtodo [selectedSubTodo]="subTodo" *ngFor="let subTodo of dataService.$selectedTodo.subTodos"></app-subtodo>
+            <app-subtodo [selectedSubTodo]="subTodo" *ngFor="let subTodo of currentTodo.subTodos"></app-subtodo>
 
             <div class="todo-add">
                 <svg id="add" width="15.186" height="14.954" viewBox="0 0 15.186 14.954">
@@ -28,7 +28,6 @@
                   </svg>
 
                   <div class="todo-content">
-                    <!--<p id="todo-name">Noodles & Sauce</p>-->
                     <input type="text" [(ngModel)]="subTodo$.title" placeholder="Next step" (keyup.enter)="addSubTodo()">
                 </div>
             </div>
