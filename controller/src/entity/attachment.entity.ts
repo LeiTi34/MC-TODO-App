@@ -26,6 +26,7 @@ export class Attachment extends BaseEntity {
 
   @Column({
     type: 'bytea',
+    select: false,
   })
   data: Buffer;
 

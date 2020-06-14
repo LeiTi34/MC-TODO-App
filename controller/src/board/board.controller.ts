@@ -30,7 +30,7 @@ export class BoardController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  async ave(@Request() req: any): Promise<Board> {
+  async save(@Request() req: any): Promise<Board> {
     return await this.boardService.save(req.user as User, req.body as Board);
   }
 
@@ -56,7 +56,8 @@ export class BoardController {
   @Post(':id')
   async saveTodo(@Param('id') id: number, @Request() req: any): Promise<Todo> {
     let todo: Todo = req.body as Todo;
-    //todo.board = { id: id } as Board;
+    todo.board = new Board();
+    todo.board.id = id;
     return await this.todoService.save(req.user as User, req.body as Todo);
   }
 }
