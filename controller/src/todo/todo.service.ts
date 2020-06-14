@@ -5,7 +5,7 @@ import { Connection } from 'typeorm';
 import { User } from 'src/entity/user.entity';
 
 @Injectable()
-export class TodosService {
+export class TodoService {
   constructor(private connection: Connection) {}
 
   todoRepository = this.connection.getRepository(Todo);

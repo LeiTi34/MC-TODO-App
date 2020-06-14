@@ -4,7 +4,7 @@ import { Board } from 'src/entity/board.entity';
 import { Connection } from 'typeorm';
 
 @Injectable()
-export class BoardsService {
+export class BoardService {
   constructor(private connection: Connection) {}
   userRepository = this.connection.getRepository(User);
   boardRepository = this.connection.getRepository(Board);

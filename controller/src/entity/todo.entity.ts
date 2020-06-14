@@ -43,7 +43,7 @@ export class Todo extends BaseEntity {
   note: string;
 
   @OneToMany(
-    type => SubTodo,
+    () => SubTodo,
     subTodo => subTodo.todo,
     {
       cascade: ['remove', 'update'],
@@ -52,7 +52,7 @@ export class Todo extends BaseEntity {
   subTodos: SubTodo[];
 
   @OneToOne(
-    type => Attachment,
+    () => Attachment,
     attachment => attachment.todo,
     {
       cascade: ['remove', 'update'],
@@ -70,7 +70,7 @@ export class Todo extends BaseEntity {
   repeatInterval: RepeatInterval;
 
   @ManyToOne(
-    type => Board,
+    () => Board,
     board => board.todos,
     { nullable: false },
   )
