@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+
+.nav-detail-mobile {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    background: $light-blue;
+
+    div {
+        //flex-grow: 1;
+        align-self: center;
+
+        #back {
+            float: left;
+            margin: 1.2rem;
+
+            .cls-1 {
+                fill: #7e7ef7;
+              }
+        
+            .cls-2 {
+                fill: rgba(126,126,247,0.45);
+            }
+        }
+
+        #search {
+            float: right;
+            margin: 1.2rem;
+
+            .cls-1 {
+                isolation: isolate;
+            }
+        
+            .cls-2 {
+                fill: $white;
+                stroke: $white;
+            }
+        }
+    } 
+}

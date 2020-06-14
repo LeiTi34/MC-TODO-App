@@ -1,0 +1,15 @@
+<app-nav-boards-mobile></app-nav-boards-mobile>
+<div class="mobile-boards">
+    <div class="content">
+        <div class="greeting">
+            <h1>Your boards</h1>
+            <p>Hi Daniel, what do you want to do today?</p>   
+        </div>
+
+        <div class="boards">
+            <app-board class="ngfor" [selectedBoard]="board" *ngFor="let board of dataService.boards"></app-board>
+        </div>
+    </div>
+</div>
+
+

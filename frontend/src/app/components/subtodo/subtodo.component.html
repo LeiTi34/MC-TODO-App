@@ -1,0 +1,22 @@
+<div class="todo-sub" [class.done]="selectedSubTodo.isDone" >
+    <svg (click)="dataService.triggerSubDone(selectedSubTodo)" id="todo-check" width="25" height="25" viewBox="0 0 25 25">
+        <g transform="translate(-15 -19.348)">
+            <g class="cls-1" transform="translate(15 19.348)">
+              <rect class="cls-3" width="25" height="25" rx="8"/>
+              <rect class="cls-4" x="0.5" y="0.5" width="24" height="24" rx="7.5"/>
+            </g>
+            <path class="cls-2" d="M3.3,14.605l6.828,2.649L9.959,2.687" transform="matrix(0.875, 0.485, -0.485, 0.875, 25.947, 19.051)"/>
+          </g>
+    </svg>
+
+    <div class="todo-content">
+        <p id="todo-name">{{selectedSubTodo.title}}</p>
+        <svg (click)="dataService.deleteSub(selectedSubTodo)" id="delete" width="9.414" height="9.414" viewBox="0 0 9.414 9.414">
+            <g transform="translate(-279.9 -7.174)">
+              <path class="cls-1" d="M8,0,0,8" transform="translate(280.607 7.881)"/>
+              <path class="cls-1" d="M0,0,6,6,8,8" transform="translate(280.607 7.881)"/>
+            </g>
+          </svg>
+          
+    </div>
+</div>

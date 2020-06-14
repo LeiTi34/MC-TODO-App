@@ -1,0 +1,169 @@
+@import "../../../styles.scss";
+
+$transition-time: 250ms;
+
+.todo-detail {
+    background-color: $dark-blue;
+    height: 100%;
+    border-top-left-radius: 2.375rem;
+    border-top-right-radius: 2.375rem;
+    position: fixed;
+    width: 100%;
+    top: 4.2rem;
+
+    //display: flex;
+
+    .content {
+        margin: 1.3rem 1rem;
+        //height: 100%;
+        //width: 100%;
+
+        .todo {
+            margin-top: 0.5rem ;
+            border-radius: 1rem;
+            background-color: $light-blue;
+            padding-bottom: 0.75rem;
+
+            .todo-main {
+                display: flex;
+                align-items: center;
+                #todo-check {
+                    margin: 1.25rem;
+                    min-width: 1.5rem;
+            
+                    .cls-1 {
+                        fill: transparent;
+                        stroke: $white;
+            
+                        -webkit-transition: fill $transition-time ease-out;
+                        -moz-transition: fill $transition-time ease-out;
+                        -o-transition: fill $transition-time ease-out;
+                        transition: fill $transition-time ease-out;
+            
+                    }
+                    .cls-2, .cls-4 {
+                        fill: none;
+                    }
+                    .cls-2 {
+                        stroke: transparent;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
+            
+                        -webkit-transition: stroke $transition-time ease-out;
+                        -moz-transition: stroke $transition-time ease-out;
+                        -o-transition: stroke $transition-time ease-out;
+                        transition: stroke $transition-time ease-out;
+                    }
+                    .cls-3 {
+                        stroke: none;
+                    }
+                }
+                
+                .todo-content {
+                    margin: 0.3rem 0 0.75rem 0;
+                    #todo-name {
+                        font-size: $font-big;
+                        margin: 0;
+            
+                        -webkit-transition: color $transition-time ease-out;
+                        -moz-transition: color $transition-time ease-out;
+                        -o-transition: color $transition-time ease-out;
+                        transition: color $transition-time ease-out;
+                    }
+                }    
+            }
+
+            .todo-main.done {
+                #todo-check {
+                    .cls-1 {
+                        fill: $accent;
+                        stroke: transparent;
+                      }
+                
+                      .cls-2, .cls-4 {
+                        fill: none;
+                      }
+                
+                      .cls-2 {
+                        stroke: $white;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 2px;
+                      }
+                
+                      .cls-3 {
+                        stroke: none;
+                      }
+                }
+                #todo-name {
+                    text-decoration: line-through;
+                    color: $grey;
+                }
+            }
+
+            .todo-add {
+                display: flex;
+                align-items: center;
+                margin-left: 0.3rem;
+                //margin-bottom: 0.5rem;
+                #add {
+                    margin: 0rem 1.25rem 0rem 1.25rem;
+                    max-width: 1.2rem;
+                    min-width: 1.2rem;
+                    .cls-1 {
+                        fill: none;
+                        stroke: #7e7ef7;
+                        stroke-linecap: round;
+                        stroke-width: 2px;
+                    }
+                }
+
+                .todo-content {                    
+                    margin: 0rem 2rem 0.1rem -0.188rem;
+                    width: 100%;
+                    line-height: 1.8rem;
+                    color: $accent;
+
+                    #todo-name {
+                        font-size: $font-sub;
+                        margin: 0;
+                        flex: 1;
+                        color: $accent;
+                    }
+
+                    input {
+                        background-color: transparent;
+                        border: none;
+                        font-size: $font-sub;
+                        color: $accent;
+                        -webkit-appearance: inherit;
+                        outline-offset: 0;
+                        outline: none;
+                        flex: 1;
+                        box-sizing: border-box;
+                        width: 100%;
+                    }
+
+                    ::placeholder {
+                        color: $accent;
+                        opacity: 1;
+                    }
+
+                    :-ms-input-placeholder {color: $accent;}
+                    ::-ms-input-placeholder {color: $accent;}
+            
+                    input:focus {
+                        color: $grey;
+                    }
+                }
+            }
+        }
+    }
+
+        
+   
+
+    
+}
+

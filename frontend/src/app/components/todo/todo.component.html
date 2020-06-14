@@ -1,0 +1,35 @@
+<div class="todo" [class.done]="selectedTodo.isDone">
+    <svg (click)="dataService.triggerDone(selectedTodo)" id="todo-check" width="25" height="25" viewBox="0 0 25 25">
+        <g transform="translate(-15 -19.348)">
+            <g class="cls-1" transform="translate(15 19.348)">
+              <rect class="cls-3" width="25" height="25" rx="8"/>
+              <rect class="cls-4" x="0.5" y="0.5" width="24" height="24" rx="7.5"/>
+            </g>
+            <path class="cls-2" d="M3.3,14.605l6.828,2.649L9.959,2.687" transform="matrix(0.875, 0.485, -0.485, 0.875, 25.947, 19.051)"/>
+          </g>
+    </svg>
+      
+    <div class="todo-content" (click)="openTodo()">
+        <p id="todo-name">{{selectedTodo.title}}</p>
+        <div *ngIf="selectedTodo.reminderDate || selectedTodo.dueDate || selectedTodo.repeatInterval" class="todo-attributes">
+            <svg *ngIf="selectedTodo.dueDate" id="calendar" width="11.469" height="13.107" viewBox="0 0 11.469 13.107">
+                <path class="cls-1" d="M0,11.878a1.229,1.229,0,0,0,1.229,1.229H10.24a1.229,1.229,0,0,0,1.229-1.229V4.915H0ZM8.192,6.861A.308.308,0,0,1,8.5,6.553H9.523a.308.308,0,0,1,.307.307V7.885a.308.308,0,0,1-.307.307H8.5a.308.308,0,0,1-.307-.307Zm0,3.277A.308.308,0,0,1,8.5,9.83H9.523a.308.308,0,0,1,.307.307v1.024a.308.308,0,0,1-.307.307H8.5a.308.308,0,0,1-.307-.307ZM4.915,6.861a.308.308,0,0,1,.307-.307H6.246a.308.308,0,0,1,.307.307V7.885a.308.308,0,0,1-.307.307H5.222a.308.308,0,0,1-.307-.307Zm0,3.277a.308.308,0,0,1,.307-.307H6.246a.308.308,0,0,1,.307.307v1.024a.308.308,0,0,1-.307.307H5.222a.308.308,0,0,1-.307-.307ZM1.638,6.861a.308.308,0,0,1,.307-.307H2.97a.308.308,0,0,1,.307.307V7.885a.308.308,0,0,1-.307.307H1.946a.308.308,0,0,1-.307-.307Zm0,3.277a.308.308,0,0,1,.307-.307H2.97a.308.308,0,0,1,.307.307v1.024a.308.308,0,0,1-.307.307H1.946a.308.308,0,0,1-.307-.307Zm8.6-8.5H9.011V.41A.411.411,0,0,0,8.6,0H7.782a.411.411,0,0,0-.41.41V1.638H4.1V.41A.411.411,0,0,0,3.686,0H2.867a.411.411,0,0,0-.41.41V1.638H1.229A1.229,1.229,0,0,0,0,2.867V4.1H11.469V2.867A1.229,1.229,0,0,0,10.24,1.638Z"/>
+            </svg>
+            <p   *ngIf="selectedTodo.dueDate">{{selectedTodo.dueDate | date: 'LLL d'}}</p>
+            <svg *ngIf="selectedTodo.dueDate && selectedTodo.repeatInterval" id="spacer" width="3" height="3" viewBox="0 0 3 3">
+                <circle class="cls-1" cx="1.5" cy="1.5" r="1.5"/>
+            </svg>
+            <svg *ngIf="selectedTodo.reminderDate" id="bell" width="11.619" height="13.279" viewBox="0 0 11.619 13.279">
+                <path class="cls-1" d="M5.809,13.279a1.66,1.66,0,0,0,1.659-1.66H4.15A1.66,1.66,0,0,0,5.809,13.279ZM11.4,9.4c-.5-.538-1.439-1.348-1.439-4A4.1,4.1,0,0,0,6.639,1.37V.83A.829.829,0,1,0,4.98.83v.54A4.1,4.1,0,0,0,1.662,5.395c0,2.653-.938,3.463-1.439,4A.81.81,0,0,0,0,9.959a.831.831,0,0,0,.833.83h9.954a.83.83,0,0,0,.833-.83A.81.81,0,0,0,11.4,9.4Z" transform="translate(0)"/>
+            </svg>
+            <p   *ngIf="selectedTodo.reminderDate">{{selectedTodo.reminderDate | date: 'LLL d, h:mm a'}}</p>
+            <svg *ngIf="selectedTodo.dueDate && selectedTodo.repeatInterval" id="spacer" width="3" height="3" viewBox="0 0 3 3">
+                <circle class="cls-1" cx="1.5" cy="1.5" r="1.5"/>
+            </svg>
+            <svg *ngIf="selectedTodo.repeatInterval" id="repeat" width="12.276" height="13.641" viewBox="0 0 12.276 13.641">
+                <path class="cls-1" d="M12.276,4.51v4.62a2.667,2.667,0,0,1-2.513,2.792H7.217l.236.263a.921.921,0,0,1,0,1.206.714.714,0,0,1-1.085,0L4.822,11.673a.921.921,0,0,1,0-1.206L6.369,8.749a.714.714,0,0,1,1.085,0,.921.921,0,0,1,0,1.206l-.236.263H9.763a1.038,1.038,0,0,0,.978-1.087V4.51a1.038,1.038,0,0,0-.978-1.087H9.309a.813.813,0,0,1-.767-.853.813.813,0,0,1,.767-.853h.454A2.667,2.667,0,0,1,12.276,4.51ZM2.967,10.218H2.513a1.038,1.038,0,0,1-.978-1.087V4.51a1.038,1.038,0,0,1,.978-1.087H5.059l-.236.263a.921.921,0,0,0,0,1.206.714.714,0,0,0,1.085,0L7.454,3.174a.921.921,0,0,0,0-1.206L5.907.25a.714.714,0,0,0-1.085,0,.921.921,0,0,0,0,1.206l.236.263H2.513A2.667,2.667,0,0,0,0,4.51v4.62a2.667,2.667,0,0,0,2.513,2.792h.454a.857.857,0,0,0,0-1.705Z" transform="translate(0 0)"/>
+            </svg>
+            <p   *ngIf="selectedTodo.repeatInterval">{{selectedTodo.repeatInterval}}</p>
+        </div>
+    </div>
+</div>
