@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { BoardModule } from './board/board.module';
 import { TodoModule } from './todo/todo.module';
 import { AttachmentModule } from './attachment/attachment.module';
+import { SubtodoModule } from './subtodo/subtodo.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AttachmentModule } from './attachment/attachment.module';
     BoardModule,
     TodoModule,
     AttachmentModule,
+    SubtodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
