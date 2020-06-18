@@ -1,18 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
-//define routes
-const appRoutes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}, //localhost:4200/register
-  {path: 'login', component: LoginComponent }
-];
 import { OverviewComponent } from './components/overview/overview.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component';
@@ -28,6 +21,8 @@ import { MobileTodoComponent } from './views/mobile-todo/mobile-todo.component';
 import { MobileBoardsComponent } from './views/mobile-boards/mobile-boards.component';
 import { NavBoardsMobileComponent } from './components/nav-boards-mobile/nav-boards-mobile.component';
 import { BoardComponent } from './components/board/board.component';
+import { DesktopComponent } from './views/desktop/desktop.component';
+import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.component';
 
 @NgModule({
   declarations: [
@@ -46,12 +41,12 @@ import { BoardComponent } from './components/board/board.component';
     MobileTodoComponent,
     MobileBoardsComponent,
     NavBoardsMobileComponent,
-    BoardComponent
+    BoardComponent,
+    DesktopComponent,
+    NavDesktopComponent
   ],
   imports: [
     BrowserModule,
-    //register routes
-    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,

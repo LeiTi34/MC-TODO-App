@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-nav-boards-mobile',
-  templateUrl: './nav-boards-mobile.component.html',
-  styleUrls: ['./nav-boards-mobile.component.scss']
+  selector: 'app-desktop',
+  templateUrl: './desktop.component.html',
+  styleUrls: ['./desktop.component.scss']
 })
-export class NavBoardsMobileComponent implements OnInit {
+export class DesktopComponent implements OnInit {
 
   constructor(public dataService: DataService) { }
 

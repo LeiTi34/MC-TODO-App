@@ -1,0 +1,14 @@
+.desktop {
+    position: fixed;
+    width: 100%;
+    .wrapper {
+        display: flex;
+        .boards {
+            max-width: 20vw;
+            min-width: 10vw;
+        }
+        .content {
+            flex: 1;
+        }
+    }
+}

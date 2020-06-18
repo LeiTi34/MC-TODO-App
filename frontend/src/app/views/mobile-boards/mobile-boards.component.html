@@ -1,5 +1,5 @@
-<app-nav-boards-mobile></app-nav-boards-mobile>
-<div class="mobile-boards">
+<app-nav-boards-mobile *ngIf="dataService.isMobile()"></app-nav-boards-mobile>
+<div class="mobile-boards" [class.desktop]="!dataService.isMobile()">
     <div class="content">
         <div class="greeting">
             <h1>Your boards</h1>

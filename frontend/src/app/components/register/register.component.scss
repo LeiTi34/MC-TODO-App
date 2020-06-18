@@ -4,6 +4,12 @@
     margin: 0;
 }
 
+.register-data {
+    svg {
+        margin: 0 1rem 0 0.5rem;
+    }
+}
+
 div.register-form {
     display: flex;
     flex-direction: column;
@@ -132,5 +138,11 @@ label#missing-account {
         width: 100%;
         height: 10rem;
         margin-bottom: 1rem;
+    }
+}
+
+svg {
+    .cls-1 {
+        fill: $grey;
     }
 }

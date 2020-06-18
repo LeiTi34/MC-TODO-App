@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <app-subtodo [selectedSubTodo]="subTodo" *ngFor="let subTodo of currentTodo.subTodos"></app-subtodo>
+            <app-subtodo [selectedSubTodo]="subTodo" *ngFor="let subTodo of dataService.selectedTodo.subTodos"></app-subtodo>
 
             <div class="todo-add">
                 <svg id="add" width="15.186" height="14.954" viewBox="0 0 15.186 14.954">

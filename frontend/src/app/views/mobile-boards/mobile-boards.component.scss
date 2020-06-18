@@ -27,6 +27,10 @@
             width: -webkit-fill-available;
             flex-wrap: wrap;
 
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: calc(100vh - 16rem);
+
             .ngfor {
                 flex: 1;
             }
@@ -35,3 +39,17 @@
         }
     }
 }
+
+.mobile-boards.desktop {
+    border-right: 1px solid $grey;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $accent;
+    border-radius: 1rem;
+} 

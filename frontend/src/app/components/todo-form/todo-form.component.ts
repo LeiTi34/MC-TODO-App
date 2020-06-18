@@ -45,7 +45,7 @@ export class TodoFormComponent implements OnInit {
       title: undefined,
       isDone: false,
       note: undefined,
-      subTodos: [undefined],
+      subTodos: [],
       reminderDate: undefined,
       dueDate: undefined,
       repeatInterval: undefined,

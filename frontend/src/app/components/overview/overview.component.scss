@@ -8,7 +8,6 @@
     position: fixed;
     width: 100%;
     top: 6rem;
-
     //display: flex;
 
     .content {
@@ -31,5 +30,11 @@
     ::-webkit-scrollbar-thumb {
         background: $accent;
     } 
+}
+
+.overview.desktop {
+    padding-top: 1rem;
+    position: inherit;
+    top: 0rem;
 }
 

@@ -1,9 +1,6 @@
 <div class="body">
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="dataService.isMobile()"></router-outlet>
+    <app-desktop *ngIf="!dataService.isMobile() && router.url !== '/login' && router.url !== '/register' && router.url !== '/'"></app-desktop>
+    <app-register *ngIf="!dataService.isMobile() && router.url === '/register'"></app-register>
+    <app-login *ngIf="!dataService.isMobile() && (router.url === '/login' || router.url === '/')"></app-login>
 </div>
-
-<!-- Detail View
-<app-nav-detail-mobile></app-nav-detail-mobile>
-<app-todo-detail></app-todo-detail>-->
-
-<!--<app-mobile-board></app-mobile-board>-->

@@ -15,6 +15,11 @@ export class DataService {
   public selectedBoard: Board = BOARDS[0];
   public selectedTodo: Todo;
 
+  public width = 0;
+  public height = 0;
+
+  public notification = false;
+
   constructor() { }
 
   public addTodo(object: Todo): void {
@@ -50,5 +55,15 @@ export class DataService {
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
     this.selectedTodo.subTodos.splice(index, 1);
     this.updateTodo(this.selectedTodo);
+  }
+
+  isMobile(): boolean {
+    const ua = navigator.userAgent;
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua) && this.width < 768) {
+       return true;
+    } else {
+       return false;
+    }
   }
 }
