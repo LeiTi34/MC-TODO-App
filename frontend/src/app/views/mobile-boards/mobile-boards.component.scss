@@ -34,14 +34,26 @@
             .ngfor {
                 flex: 1;
             }
-
-            
+        }
+        .boards.desktop {
+            display: inline-grid;
         }
     }
 }
 
 .mobile-boards.desktop {
     border-right: 1px solid $grey;
+    padding-top: 1rem;
+    .content {
+        .greeting {
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .boards {
+            height: calc(100vh - 12rem);
+        }
+    }
 }
 
 // Scrollbar

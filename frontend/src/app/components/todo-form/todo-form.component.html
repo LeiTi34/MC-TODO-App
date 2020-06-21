@@ -1,4 +1,4 @@
-<div class="todo-form">
+<div class="todo-form" [class.desktop]=!dataService.isMobile()>
     <div class="wrapper">
         <svg width="25" height="25" viewBox="0 0 25 25" id="todo-add" (click)=createNewTodo()>
             <g transform="translate(-15 -20)">

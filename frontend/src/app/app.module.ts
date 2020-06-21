@@ -24,7 +24,11 @@ import { BoardComponent } from './components/board/board.component';
 import { DesktopComponent } from './views/desktop/desktop.component';
 import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.component';
 
-//import {MatDatepickerModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,7 @@ import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.compon
     NavBoardsMobileComponent,
     BoardComponent,
     DesktopComponent,
-    NavDesktopComponent
+    NavDesktopComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +57,14 @@ import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.compon
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    //MatDatepickerModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
-  providers: [],
+  exports: [ MatDatepickerModule,
+    MatFormFieldModule],
+  providers: [ { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div class="board" (click)="openBoard()">
+<div class="board" (click)="openBoard()" [class.desktop]=!dataService.isMobile()>
     <p id="board-name">{{selectedBoard.name}}</p>
     <p id="open-todos">{{selectedBoard.todos.length}} todo's</p>
 </div>

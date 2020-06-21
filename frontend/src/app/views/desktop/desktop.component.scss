@@ -4,11 +4,19 @@
     .wrapper {
         display: flex;
         .boards {
-            max-width: 20vw;
-            min-width: 10vw;
+            max-width: 25vw;
+            min-width: 20vw;
+            //display: flex;
         }
         .content {
             flex: 1;
+            h1 {
+                margin: 1rem;
+            }
+        }
+        .todo-detail {
+            max-width: 25vw;
+            min-width: 24vw;
         }
     }
 }

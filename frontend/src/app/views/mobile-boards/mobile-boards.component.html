@@ -6,7 +6,7 @@
             <p>Hi Daniel, what do you want to do today?</p>   
         </div>
 
-        <div class="boards">
+        <div class="boards" [class.desktop]=!dataService.isMobile()>
             <app-board class="ngfor" [selectedBoard]="board" *ngFor="let board of dataService.boards"></app-board>
         </div>
     </div>
