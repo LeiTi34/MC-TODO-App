@@ -24,6 +24,8 @@ import { BoardComponent } from './components/board/board.component';
 import { DesktopComponent } from './views/desktop/desktop.component';
 import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.component';
 
+//import {MatDatepickerModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { NavDesktopComponent } from './components/nav-desktop/nav-desktop.compon
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

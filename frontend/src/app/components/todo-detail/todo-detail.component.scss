@@ -159,6 +159,30 @@ $transition-time: 250ms;
                 }
             }
         }
+
+        .properties {
+            margin-top: 0.5rem ;
+            border-radius: 1rem;
+            background-color: $light-blue;
+            padding-bottom: 0.75rem;
+
+            .reminder {
+                svg {
+                    margin: 1.25rem;
+                    min-width: 1.5rem;
+                    .cls-1 {
+                        fill: $grey;
+                    }
+                }
+            }
+        }
+
+        .notes {
+            margin-top: 0.5rem ;
+            border-radius: 1rem;
+            background-color: $light-blue;
+            padding-bottom: 0.75rem;
+        }
     }
 
         
