@@ -29,6 +29,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
+import { NavBackendComponent } from './components/nav-backend/nav-backend.component';
+import { PanelBackendComponent } from './components/panel-backend/panel-backend.component';
+import { SidebarBackendComponent } from './components/sidebar-backend/sidebar-backend.component';
+import { BackendComponent } from './views/backend/backend.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import {MatInputModule} from '@angular/material/input';
     BoardComponent,
     DesktopComponent,
     NavDesktopComponent,
+    NavBackendComponent,
+    PanelBackendComponent,
+    SidebarBackendComponent,
+    BackendComponent,
   ],
   imports: [
     BrowserModule,

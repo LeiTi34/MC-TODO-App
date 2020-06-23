@@ -1,0 +1,56 @@
+@import '../../../styles.scss';
+
+.wrapper {
+    display: flex;
+
+    app-sidebar-backend {
+        width: 15vw;
+        background: $dark-blue;
+        height: 100%;
+        position: fixed;        
+    }
+    app-panel-backend {
+        flex: 1;
+        background: $dark-blue;
+        border-left: 1px solid $grey;
+        position: fixed;
+        left: 15vw;
+        padding: 1rem 2rem;
+        width: 83.5vw;
+        height: 100%;        
+    }
+}
+
+.password {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: $dark-blue;
+
+    .button {
+        margin-left: 2rem;
+        padding: 1rem;
+        background-color: $light-blue;
+        width: 10rem;
+        border-radius: 1rem;
+        text-align: center;
+    }
+    .admin {
+        padding: 1rem;
+        margin: 0;
+    }
+    .input {
+        display: flex;
+        padding: 1rem;
+    }
+    input {
+        height: 1rem;
+        align-self: center;
+    }
+
+}
+
+.password.none {
+    display: none;
+}
