@@ -7,6 +7,8 @@ import { BOARDS } from "../mock-boards";
 import { Observable } from "rxjs/internal/Observable";
 import { Token } from "../interfaces/token";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root",
@@ -26,28 +28,55 @@ export class DataService {
   public boards: Board[] = BOARDS;
   public selectedBoard: Board = BOARDS[0];
   public selectedTodo: Todo;
+  public selectedUser: User;
+
+  public loginCredential: string;
+  public loginPassword: string;
 
   public width = 0;
   public height = 0;
 
   public notification = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) {
+      this.selectedUser = { username: "", password: "", email: ""};
+    }
 
   public login(user: User): boolean {
+    console.log(user);
     this.http
       .post<Token>(this.loginUrl, user, this.httpOptions)
       .subscribe((data) => (this.token = data));
 
+    if (this.token != null) {
+      this.router.navigate(['/boards']);
+    }
     return this.token != null;
   }
 
   public register(user: User): boolean {
+    console.log(user);
     this.http
       .post<Token>(this.loginUrl, user, this.httpOptions)
       .subscribe((data) => (this.token = data));
 
+    if (this.token != null) {
+      this.router.navigate(['/boards']);
+    }
     return this.token != null;
+  }
+
+  public setLoginData(): void {
+    if (this.loginCredential.includes("@")) {
+      this.selectedUser.email = this.loginCredential;
+    } else {
+      this.selectedUser.username = this.loginCredential;
+    }
+    this.selectedUser.password = this.loginPassword;
+    this.login(this.selectedUser);
   }
 
   public addTodo(object: Todo): void {

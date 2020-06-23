@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "host": "localhost",
+  "host": "e113593-pgsql.services.easyname.eu",
   "port": 5432,
-  "username": "admin",
-  "password": "12345678",
-  "database": "todo",
+  "username": "u177093db1",
+  "password": "Taco-Todo-MC2020",
+  "database": "u177093db1",
   "entities": ["dist/**/*.entity{.ts,.js}"],
   "synchronize": true
 }
