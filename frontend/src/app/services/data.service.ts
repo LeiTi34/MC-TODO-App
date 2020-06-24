@@ -19,6 +19,7 @@ export class DataService {
   private loginUrl = this.Url + "/auth/login";
   private registerUrl = this.Url + "/auth/register";
   private boardUrl = this.Url + "/board";
+  private todoUrl = this.Url + "/board";
   private token: Token;
 
   httpOptions = {
@@ -58,12 +59,11 @@ export class DataService {
 
     console.log(this.token);
 
+    await this.getBoards();
+
     if (this.token != null) {
       this.router.navigate(["/boards"]);
     }
-
-    await this.getBoards();
-
     return this.token != null;
   }
 
@@ -96,7 +96,14 @@ export class DataService {
     this.login(this.selectedUser);
   }
 
-  public addTodo(object: Todo): void {
+  public async addTodo(object: Todo): Promise<void> {
+    let todo = await this.http
+      .post<Board[]>(this.boardUrl + "/" + this.selectedBoard.id, object, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+    console.log(todo);
+
     this.selectedBoard.todos.push(object);
     console.log("Added " + object.title + " to " + this.selectedBoard.name);
     console.log(this.boards);
