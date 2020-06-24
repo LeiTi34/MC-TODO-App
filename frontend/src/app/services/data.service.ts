@@ -62,7 +62,7 @@ export class DataService {
       this.router.navigate(["/boards"]);
     }
 
-    this.getBoards();
+    await this.getBoards();
 
     return this.token != null;
   }
