@@ -18,6 +18,7 @@ export class DataService {
 
   private loginUrl = this.Url + "/auth/login";
   private registerUrl = this.Url + "/auth/register";
+  private boardUrl = this.Url + "/board";
   private token: Token;
 
   httpOptions = {
@@ -42,6 +43,13 @@ export class DataService {
     this.selectedUser = { username: "", password: "", email: "" };
   }
 
+  private getBearerHeader(): HttpHeaders {
+    return new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: "bearer " + this.token.access_token,
+    });
+  }
+
   public async login(user: User): Promise<boolean> {
     console.log(user);
     this.token = await this.http
@@ -53,6 +61,9 @@ export class DataService {
     if (this.token != null) {
       this.router.navigate(["/boards"]);
     }
+
+    this.getBoards();
+
     return this.token != null;
   }
 
@@ -66,6 +77,13 @@ export class DataService {
       this.router.navigate(["/boards"]);
     }
     return this.token != null;
+  }
+
+  public async getBoards(): Promise<void> {
+    this.boards = await this.http
+      .get<Board[]>(this.boardUrl, { headers: this.getBearerHeader() })
+      .toPromise();
+    console.log(this.boards);
   }
 
   public setLoginData(): void {
