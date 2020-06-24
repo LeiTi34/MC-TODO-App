@@ -1,0 +1,101 @@
+@import "../../../styles.scss";
+
+$transition-time: 250ms;
+
+.todo-sub {
+    display: flex;
+    align-items: center;
+    margin-left: 0.3rem;
+    margin-bottom: 0.5rem;
+    #todo-check {
+        margin: 0rem 1.25rem 0rem 1.25rem;
+        max-width: 1.2rem;
+        min-width: 1.2rem;
+
+        .cls-1 {
+            fill: transparent;
+            stroke: $white;
+
+            -webkit-transition: fill $transition-time ease-out;
+            -moz-transition: fill $transition-time ease-out;
+            -o-transition: fill $transition-time ease-out;
+            transition: fill $transition-time ease-out;
+
+        }
+        .cls-2, .cls-4 {
+            fill: none;
+        }
+        .cls-2 {
+            stroke: transparent;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2px;
+
+            -webkit-transition: stroke $transition-time ease-out;
+            -moz-transition: stroke $transition-time ease-out;
+            -o-transition: stroke $transition-time ease-out;
+            transition: stroke $transition-time ease-out;
+        }
+        .cls-3 {
+            stroke: none;
+        }
+    }
+    
+    .todo-content {                    
+        margin: 0rem 0 0.1rem 0;
+        width: 100%;
+        margin-right: 2rem;
+        line-height: 1.8rem;
+        display: flex;
+
+        border-bottom: solid 1px $grey;
+        border-bottom-style: groove;                    
+        #todo-name {
+            font-size: $font-sub;
+            margin: 0;
+            flex: 1;
+
+            -webkit-transition: color $transition-time ease-out;
+            -moz-transition: color $transition-time ease-out;
+            -o-transition: color $transition-time ease-out;
+            transition: color $transition-time ease-out;
+        }
+        #delete .cls-1 {
+            fill: none;
+            stroke: $white;
+            stroke-linecap: round;
+        }
+        #delete {
+            margin: 0.5rem;
+            align-self: center;
+        }
+    }  
+}
+
+.todo-sub.done {
+    #todo-check {
+        .cls-1 {
+            fill: $accent;
+            stroke: transparent;
+          }
+    
+          .cls-2, .cls-4 {
+            fill: none;
+          }
+    
+          .cls-2 {
+            stroke: $white;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2px;
+          }
+    
+          .cls-3 {
+            stroke: none;
+          }
+    }
+    #todo-name {
+        text-decoration: line-through;
+        color: $grey;
+    }
+}

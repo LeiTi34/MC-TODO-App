@@ -1,0 +1,31 @@
+@import "../../../styles.scss";
+
+.board {
+    background: $light-blue;
+    border-radius: 1rem;
+    width: -webkit-fill-available;
+    //max-width: 11rem;
+    min-width: 7.7rem;
+    height: 10rem;
+    padding: 1.5rem 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    flex: 1;
+
+    p{
+        margin: 0;  
+    }
+    #board-name {
+        font-size: 1rem;
+    }
+    #open-todos {
+        font-size: 0.8rem;
+        color: $accent;
+    }
+}
+:last-of-type {
+    //margin-right: 0;
+}
+.board.desktop {
+    min-width: unset;
+}

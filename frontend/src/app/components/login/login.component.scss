@@ -4,6 +4,12 @@
     margin: 0;
 }
 
+.login-data {
+    svg {
+        margin: 0 1rem 0 0.5rem;
+    }
+}
+
 div.login-form {
     display: flex;
     flex-direction: column;
@@ -142,5 +148,11 @@ a#forgot-pw {
         width: 100%;
         height: 10rem;
         margin-bottom: 1rem;
+    }
+}
+
+svg {
+    .cls-1 {
+        fill: $grey;
     }
 }

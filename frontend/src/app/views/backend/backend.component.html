@@ -1,0 +1,14 @@
+<div class="password" [class.none]="isVisible">
+    <div class="input">
+        <p class="admin">Admin pwd: </p>
+        <input type="password" (keyup.enter)="toggle()">
+    </div>
+
+    
+    <p class="button" (click)="toggle()">Login</p>
+</div>
+<app-nav-backend></app-nav-backend>
+<div class="wrapper">
+    <app-sidebar-backend></app-sidebar-backend>
+    <app-panel-backend></app-panel-backend>
+</div>

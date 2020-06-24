@@ -1,0 +1,67 @@
+@import "../../../styles.scss";
+
+.mobile-boards {
+    //height: 100vh;
+    background: $dark-blue;
+    padding-top: 3rem;
+    .content {
+        .greeting {
+            margin: 1rem;
+            h1 {
+                font-family: $font1;
+                font-weight: 600;
+                margin-bottom: 0;
+                font-size: 1.875rem;
+            }
+            p {
+                margin-top: 0;
+                margin-bottom: 3rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .boards {
+            margin: 1rem;
+            margin-right: 0;
+            display: inline-flex;
+            width: -webkit-fill-available;
+            flex-wrap: wrap;
+
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: calc(100vh - 16rem);
+
+            .ngfor {
+                flex: 1;
+            }
+        }
+        .boards.desktop {
+            display: inline-grid;
+        }
+    }
+}
+
+.mobile-boards.desktop {
+    border-right: 1px solid $grey;
+    padding-top: 1rem;
+    .content {
+        .greeting {
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .boards {
+            height: calc(100vh - 12rem);
+        }
+    }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $accent;
+    border-radius: 1rem;
+} 
