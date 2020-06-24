@@ -49,11 +49,14 @@ a#a-sign-up {
 div.username,
 div.password {
     border-bottom: 0.8px solid $accent;
-    margin-bottom: 0.3rem;
 }
 
 div.username {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+div.password {
+    margin-bottom: 0.5rem;
 }
 
 div.username img,
@@ -72,6 +75,10 @@ button {
     width: 100%;
     background-color: $accent;
     margin: 1rem 0 0.5rem 0;
+}
+
+input:focus {
+    outline: none;
 }
 
 input[type=text],

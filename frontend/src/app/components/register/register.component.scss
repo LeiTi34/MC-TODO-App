@@ -50,7 +50,7 @@ div.username,
 div.password,
 div.email {
     border-bottom: 0.8px solid $accent;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.5rem;
 }
 
 div.username img,
@@ -79,6 +79,10 @@ input {
     width: 15rem;
 }
 
+input:focus {
+    outline: none;
+}
+
 input::placeholder,
 input {
     font-family: $font1;
@@ -100,30 +104,7 @@ label#missing-account {
         margin-top: 4rem;
     }
     div.register-data {
-        font-size: 16pt;
         background-color: $dark-blue;
-    }
-    div.username,
-    div.password,
-    div.email {
-        width: 100%;
-    }
-    div.username img,
-    div.password img,
-    div.email img {
-        height: 1.3rem;
-        margin-right: 1rem;
-    }
-    button {
-        height: 3.5rem;
-        font-size: 18pt;
-        margin: 2.5rem 0 2rem 0;
-    }
-    input {
-        height: 3.5rem;
-    }
-    input::placeholder {
-        font-size: 18pt;
     }
 }
 
