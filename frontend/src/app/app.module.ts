@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
@@ -30,6 +30,10 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
 import { HttpClientModule } from "@angular/common/http";
+import { NavBackendComponent } from "./components/nav-backend/nav-backend.component";
+import { PanelBackendComponent } from "./components/panel-backend/panel-backend.component";
+import { SidebarBackendComponent } from "./components/sidebar-backend/sidebar-backend.component";
+import { BackendComponent } from "./views/backend/backend.component";
 
 @NgModule({
   declarations: [
