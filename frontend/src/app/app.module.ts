@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { OverviewComponent } from './components/overview/overview.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { NavMobileComponent } from './components/nav-mobile/nav-mobile.component';
@@ -61,6 +64,9 @@ import { BackendComponent } from './views/backend/backend.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    HttpClientModule
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
