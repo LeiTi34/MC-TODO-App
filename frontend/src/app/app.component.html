@@ -1,7 +1,21 @@
 <div class="body">
-    <router-outlet *ngIf="dataService.isMobile()"></router-outlet>
-    <app-desktop *ngIf="!dataService.isMobile() && router.url !== '/login' && router.url !== '/register' && router.url !== '/' && router.url !== '/admin'"></app-desktop>
-    <app-register *ngIf="!dataService.isMobile() && router.url === '/register'"></app-register>
-    <app-login *ngIf="!dataService.isMobile() && (router.url === '/login' || router.url === '/')"></app-login>
-    <app-backend *ngIf="router.url === '/admin'"></app-backend>
+  <router-outlet *ngIf="dataService.isMobile()"></router-outlet>
+  <app-desktop
+    *ngIf="
+      !dataService.isMobile() &&
+      router.url !== '/login' &&
+      router.url !== '/register' &&
+      router.url !== '/' &&
+      router.url !== '/admin'
+    "
+  ></app-desktop>
+  <app-register
+    *ngIf="!dataService.isMobile() && router.url === '/register'"
+  ></app-register>
+  <app-login
+    *ngIf="
+      !dataService.isMobile() && (router.url === '/login' || router.url === '/')
+    "
+  ></app-login>
+  <app-backend *ngIf="router.url === '/admin'"></app-backend>
 </div>

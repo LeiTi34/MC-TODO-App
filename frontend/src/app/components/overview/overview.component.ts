@@ -6,16 +6,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent implements OnInit {
-
   @Input() toDo$: Todo;
 
-  constructor(
-    public dataService: DataService,
-    private router: Router
-  ) { }
+  constructor(public dataService: DataService, private router: Router) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

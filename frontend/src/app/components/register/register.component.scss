@@ -1,129 +1,129 @@
 @import '../../../styles.scss';
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .register-data {
-    svg {
-        margin: 0 1rem 0 0.5rem;
-    }
+  svg {
+    margin: 0 1rem 0 0.5rem;
+  }
 }
 
 div.register-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
 
 div.logo-img {
-    width: 10rem;
-    margin-bottom: 2rem;
-    img#logo {
-        height: 100%;
-        width: 100%;
-    }
+  width: 10rem;
+  margin-bottom: 2rem;
+  img#logo {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 div.register-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: $light-blue;
-    color: $grey;
-    font-family: $font1;
-    font-size: $font-small;
-    border-radius: 15px;
-    padding: 2.5rem;
-    width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $light-blue;
+  color: $grey;
+  font-family: $font1;
+  font-size: $font-small;
+  border-radius: 15px;
+  padding: 2.5rem;
+  width: 18rem;
 }
 
 a {
-    color: $grey;
-    text-decoration: none;
+  color: $grey;
+  text-decoration: none;
 }
 
 a#a-login {
-    color: $accent;
-    font-weight: 600;
+  color: $accent;
+  font-weight: 600;
 }
 
 div.username,
 div.password,
 div.email {
-    border-bottom: 0.8px solid $accent;
-    margin-bottom: 1.5rem;
+  border-bottom: 0.8px solid $accent;
+  margin-bottom: 1.5rem;
 }
 
 div.username img,
 div.password img,
 div.email img {
-    height: 1.3rem;
-    margin-right: 0.5rem;
+  height: 1.3rem;
+  margin-right: 0.5rem;
 }
 
 button {
-    text-transform: uppercase;
-    font-size: $font-big;
-    color: $white;
-    border: $accent;
-    border-radius: 15px;
-    height: 3.3rem;
-    width: 100%;
-    background-color: $accent;
-    margin: 1rem 0 0.5rem 0;
+  text-transform: uppercase;
+  font-size: $font-big;
+  color: $white;
+  border: $accent;
+  border-radius: 15px;
+  height: 3.3rem;
+  width: 100%;
+  background-color: $accent;
+  margin: 1rem 0 0.5rem 0;
 }
 
 input {
-    background: none;
-    border: 0;
-    height: 2.5rem;
-    width: 15rem;
+  background: none;
+  border: 0;
+  height: 2.5rem;
+  width: 15rem;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 input::placeholder,
 input {
-    font-family: $font1;
-    font-size: $font-big;
-    font-weight: 400;
-    color: $grey;
+  font-family: $font1;
+  font-size: $font-big;
+  font-weight: 400;
+  color: $grey;
 }
 
 label#missing-account {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 @media only screen and (max-width: 500px) {
-    div.logo-img {
-        width: 100%;
-        height: 12rem;
-    }
-    div.register-form {
-        margin-top: 4rem;
-    }
-    div.register-data {
-        background-color: $dark-blue;
-    }
+  div.logo-img {
+    width: 100%;
+    height: 12rem;
+  }
+  div.register-form {
+    margin-top: 4rem;
+  }
+  div.register-data {
+    background-color: $dark-blue;
+  }
 }
 
 @media only screen and (max-width: 360px) {
-    div.logo-img {
-        width: 100%;
-        height: 10rem;
-        margin-bottom: 1rem;
-    }
+  div.logo-img {
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 1rem;
+  }
 }
 
 svg {
-    .cls-1 {
-        fill: $grey;
-    }
+  .cls-1 {
+    fill: $grey;
+  }
 }

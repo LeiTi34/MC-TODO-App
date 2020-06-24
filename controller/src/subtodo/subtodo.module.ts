@@ -4,6 +4,6 @@ import { SubtodoService } from './subtodo.service';
 
 @Module({
   controllers: [SubtodoController],
-  providers: [SubtodoService]
+  providers: [SubtodoService],
 })
 export class SubtodoModule {}

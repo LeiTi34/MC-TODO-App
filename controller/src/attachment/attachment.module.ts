@@ -4,6 +4,6 @@ import { AttachmentService } from './attachment.service';
 
 @Module({
   controllers: [AttachmentController],
-  providers: [AttachmentService]
+  providers: [AttachmentService],
 })
 export class AttachmentModule {}

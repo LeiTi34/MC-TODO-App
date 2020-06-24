@@ -5,15 +5,12 @@ import { Todo } from 'src/app/interfaces/todo';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.scss']
+  styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent implements OnInit {
-
   @Input() toDo$: Todo;
 
-  constructor(
-    public dataService: DataService
-  ) {
+  constructor(public dataService: DataService) {
     this.toDo$ = {
       position: undefined,
       title: undefined,
@@ -24,12 +21,11 @@ export class TodoFormComponent implements OnInit {
       dueDate: undefined,
       repeatInterval: undefined,
       createdDate: undefined,
-      updateDate: undefined
+      updateDate: undefined,
     };
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public createNewTodo(): void {
     if (!this.toDo$.title) {
@@ -50,7 +46,7 @@ export class TodoFormComponent implements OnInit {
       dueDate: undefined,
       repeatInterval: undefined,
       createdDate: undefined,
-      updateDate: undefined
+      updateDate: undefined,
     };
   }
 }

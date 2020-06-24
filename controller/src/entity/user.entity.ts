@@ -33,19 +33,12 @@ export class User extends BaseEntity {
   })
   password: string;
 
-  @OneToMany(
-    () => Board,
-    owendBoard => owendBoard.owner,
-    {
-      cascade: ['remove', 'update'],
-    },
-  )
+  @OneToMany(() => Board, (owendBoard) => owendBoard.owner, {
+    cascade: ['remove', 'update'],
+  })
   ownedBoards: Board[];
 
-  @ManyToMany(
-    () => Board,
-    attendedBoard => attendedBoard.attendees,
-  )
+  @ManyToMany(() => Board, (attendedBoard) => attendedBoard.attendees)
   attendedBoards: Board[];
 
   @CreateDateColumn()

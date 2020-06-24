@@ -13,11 +13,7 @@ export class Attachment extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(
-    () => Todo,
-    todo => todo.attachment,
-    { nullable: false },
-  )
+  @OneToOne(() => Todo, (todo) => todo.attachment, { nullable: false })
   @JoinColumn()
   todo: Todo;
 
@@ -33,4 +29,3 @@ export class Attachment extends BaseEntity {
   @Column()
   mimeType: string;
 }
-

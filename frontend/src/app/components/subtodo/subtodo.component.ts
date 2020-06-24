@@ -5,15 +5,12 @@ import { SubTodo } from 'src/app/interfaces/sub-todo';
 @Component({
   selector: 'app-subtodo',
   templateUrl: './subtodo.component.html',
-  styleUrls: ['./subtodo.component.scss']
+  styleUrls: ['./subtodo.component.scss'],
 })
 export class SubtodoComponent implements OnInit {
-
   @Input() selectedSubTodo: SubTodo;
 
-  constructor( public dataService: DataService ) {
-  }
+  constructor(public dataService: DataService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

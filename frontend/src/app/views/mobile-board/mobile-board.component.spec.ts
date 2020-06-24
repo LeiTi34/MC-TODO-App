@@ -8,9 +8,8 @@ describe('MobileBoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MobileBoardComponent ]
-    })
-    .compileComponents();
+      declarations: [MobileBoardComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

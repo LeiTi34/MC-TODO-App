@@ -6,7 +6,7 @@ import { SubTodo } from 'src/app/interfaces/sub-todo';
 @Component({
   selector: 'app-todo-detail',
   templateUrl: './todo-detail.component.html',
-  styleUrls: ['./todo-detail.component.scss']
+  styleUrls: ['./todo-detail.component.scss'],
 })
 export class TodoDetailComponent implements OnInit {
   @ViewChild('fileInput')
@@ -21,13 +21,11 @@ export class TodoDetailComponent implements OnInit {
 
   file: File | null = null;
 
-  constructor(
-    public dataService: DataService
-    ) {
+  constructor(public dataService: DataService) {
     this.subTodo$ = {
       position: undefined,
       title: undefined,
-      isDone: false
+      isDone: false,
     };
   }
 
@@ -72,8 +70,6 @@ export class TodoDetailComponent implements OnInit {
     document.getElementById('noteInput').blur();
   }
 
-
-
   public addSubTodo(): void {
     if (!this.subTodo$.title) {
       return;
@@ -87,7 +83,7 @@ export class TodoDetailComponent implements OnInit {
     this.subTodo$ = {
       position: undefined,
       title: undefined,
-      isDone: false
+      isDone: false,
     };
   }
 

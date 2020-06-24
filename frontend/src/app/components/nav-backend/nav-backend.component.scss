@@ -1,23 +1,23 @@
 @import '../../../styles.scss';
 
 nav {
-    height: 4rem;
+  height: 4rem;
+  display: flex;
+  background: $accent;
+  justify-content: center;
+  .branding {
     display: flex;
-    background: $accent;
-    justify-content: center;
-    .branding {
-        display: flex;
-        margin-right: auto;
-        img {
-            margin-left: 1rem;
-            width: 2.8rem;
-        }
-        #name {    
-            fill: #fff;
-            font-size: 2.375rem;
-            font-family: MaiandraGD-Regular, Maiandra GD;
-            margin: 0 1rem 0 1rem;
-            align-self: center;
-        }
+    margin-right: auto;
+    img {
+      margin-left: 1rem;
+      width: 2.8rem;
     }
+    #name {
+      fill: #fff;
+      font-size: 2.375rem;
+      font-family: MaiandraGD-Regular, Maiandra GD;
+      margin: 0 1rem 0 1rem;
+      align-self: center;
+    }
+  }
 }

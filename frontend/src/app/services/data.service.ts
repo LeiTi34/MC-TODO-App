@@ -1,27 +1,27 @@
-import { Injectable } from "@angular/core";
-import { Todo } from "../interfaces/todo";
-import { SubTodo } from "../interfaces/sub-todo";
-import { Board } from "../interfaces/board";
-import { User } from "../interfaces/user";
-import { BOARDS } from "../mock-boards";
-import { Token } from "../interfaces/token";
-import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Todo } from '../interfaces/todo';
+import { SubTodo } from '../interfaces/sub-todo';
+import { Board } from '../interfaces/board';
+import { User } from '../interfaces/user';
+import { BOARDS } from '../mock-boards';
+import { Token } from '../interfaces/token';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class DataService {
-  private Url = "http://localhost:3000";
+  private Url = 'http://localhost:3000';
 
-  private loginUrl = this.Url + "/auth/login";
-  private registerUrl = this.Url + "/auth/register";
-  private boardUrl = this.Url + "/board";
-  private todoUrl = this.Url + "/board";
+  private loginUrl = this.Url + '/auth/login';
+  private registerUrl = this.Url + '/auth/register';
+  private boardUrl = this.Url + '/board';
+  private todoUrl = this.Url + '/board';
   private token: Token;
 
   httpOptions = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" }),
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
   //public $todos: Todo[] = TODOS;
@@ -39,13 +39,13 @@ export class DataService {
   public notification = false;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.selectedUser = { username: "", password: "", email: "" };
+    this.selectedUser = { username: '', password: '', email: '' };
   }
 
   private getBearerHeader(): HttpHeaders {
     return new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: "bearer " + this.token.access_token,
+      'Content-Type': 'application/json',
+      Authorization: 'bearer ' + this.token.access_token,
     });
   }
 
@@ -60,7 +60,7 @@ export class DataService {
     await this.getBoards();
 
     if (this.token != null) {
-      this.router.navigate(["/boards"]);
+      this.router.navigate(['/boards']);
     }
     return this.token != null;
   }
@@ -72,7 +72,7 @@ export class DataService {
       .toPromise();
 
     if (this.token != null) {
-      this.router.navigate(["/boards"]);
+      this.router.navigate(['/boards']);
     }
     return this.token != null;
   }
@@ -85,7 +85,7 @@ export class DataService {
   }
 
   public setLoginData(): void {
-    if (this.loginCredential.includes("@")) {
+    if (this.loginCredential.includes('@')) {
       this.selectedUser.email = this.loginCredential;
     } else {
       this.selectedUser.username = this.loginCredential;
@@ -96,32 +96,32 @@ export class DataService {
 
   public async addTodo(object: Todo): Promise<void> {
     let todo = await this.http
-      .post<Todo>(this.boardUrl + "/" + this.selectedBoard.id, object, {
+      .post<Todo>(this.boardUrl + '/' + this.selectedBoard.id, object, {
         headers: this.getBearerHeader(),
       })
       .toPromise();
     console.log(todo);
 
     this.selectedBoard.todos.push(todo);
-    console.log("Added " + object.name + " to " + this.selectedBoard.name);
+    console.log('Added ' + object.name + ' to ' + this.selectedBoard.name);
     console.log(this.boards);
   }
 
   public async updateTodo(object: Todo): Promise<void> {
     const updateItem = this.selectedBoard.todos.find(
-      (x) => x.position === object.position
+      (x) => x.position === object.position,
     );
     const index = this.selectedBoard.todos.indexOf(updateItem);
     this.selectedBoard.todos[index] = object;
 
     let todo = await this.http
-      .post<Todo>(this.todoUrl + "/" + updateItem.id, object, {
+      .post<Todo>(this.todoUrl + '/' + updateItem.id, object, {
         headers: this.getBearerHeader(),
       })
       .toPromise();
 
     this.selectedTodo = todo;
-    console.log("Updated " + todo.name);
+    console.log('Updated ' + todo.name);
     //console.log(object);
   }
 
@@ -129,13 +129,13 @@ export class DataService {
     object.isDone = !object.isDone;
     this.updateTodo(object);
     console.log(
-      "Toggled: " + this.selectedTodo.name + " : " + this.selectedTodo.isDone
+      'Toggled: ' + this.selectedTodo.name + ' : ' + this.selectedTodo.isDone,
     );
   }
 
   triggerSubDone(object: SubTodo): void {
     const updateItem = this.selectedTodo.subTodos.find(
-      (x) => x.position === object.position
+      (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
     object.isDone = !object.isDone;
@@ -144,7 +144,7 @@ export class DataService {
 
   deleteSub(object: SubTodo): void {
     const updateItem = this.selectedTodo.subTodos.find(
-      (x) => x.position === object.position
+      (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
     this.selectedTodo.subTodos.splice(index, 1);
@@ -156,7 +156,7 @@ export class DataService {
 
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
-        ua
+        ua,
       ) &&
       this.width < 768
     ) {

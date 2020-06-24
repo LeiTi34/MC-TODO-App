@@ -8,9 +8,8 @@ describe('DesktopComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DesktopComponent ]
-    })
-    .compileComponents();
+      declarations: [DesktopComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

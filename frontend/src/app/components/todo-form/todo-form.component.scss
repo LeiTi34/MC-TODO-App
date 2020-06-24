@@ -1,63 +1,61 @@
-@import "../../../styles.scss";
+@import '../../../styles.scss';
 
 .todo-form {
-    position: fixed;
-    bottom: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: $dark-blue;
+
+  .wrapper {
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: $light-blue;
+    display: flex;
+    align-items: center;
+  }
+
+  #todo-add {
+    min-width: 1.5rem;
+    margin: 1.25rem;
+
+    .cls-1 {
+      fill: $accent;
+    }
+
+    .cls-2 {
+      fill: none;
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-width: 2px;
+    }
+  }
+
+  #todo-content {
+    color: $grey;
+    display: flex;
     width: 100%;
-    background: $dark-blue;
+    margin-right: 1rem;
 
-    .wrapper {
-        margin: 1rem;
-        border-radius: 1rem;
-        background-color: $light-blue;
-        display: flex;
-        align-items: center;
-    }
-    
-
-    #todo-add {
-        min-width: 1.5rem;
-        margin: 1.25rem;
-
-        .cls-1 {
-            fill: $accent;
-          }
-    
-        .cls-2 {
-            fill: none;
-            stroke: #fff;
-            stroke-linecap: round;
-            stroke-width: 2px;
-        }
+    input {
+      background-color: transparent;
+      border: none;
+      font-size: $font-small;
+      color: inherit;
+      -webkit-appearance: inherit;
+      outline-offset: 0;
+      outline: none;
+      flex: 1;
+      box-sizing: border-box;
+      width: 100%;
     }
 
-    #todo-content {
-        color: $grey;
-        display: flex;
-        width: 100%;
-        margin-right: 1rem;
-
-        input {
-            background-color: transparent;
-            border: none;
-            font-size: $font-small;
-            color: inherit;
-            -webkit-appearance: inherit;
-            outline-offset: 0;
-            outline: none;
-            flex: 1;
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        input:focus {
-            color: $white;
-        }
-        
+    input:focus {
+      color: $white;
     }
+  }
 }
 
 .todo-form.desktop {
-    position: sticky;
-    bottom: 1rem;
+  position: sticky;
+  bottom: 1rem;
 }

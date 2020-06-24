@@ -1,4 +1,4 @@
-import { SubTodo } from "./sub-todo";
+import { SubTodo } from './sub-todo';
 
 export interface Todo {
   id?: number;

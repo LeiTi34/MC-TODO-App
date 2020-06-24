@@ -1,29 +1,55 @@
 <div class="login-form">
-    <div class="logo-img">
-        <img id="logo" src="../../../assets/svg/taco.svg" alt="tacotodo-logo">
+  <div class="logo-img">
+    <img id="logo" src="../../../assets/svg/taco.svg" alt="tacotodo-logo" />
+  </div>
+  <div class="login-data">
+    <div class="username">
+      <svg width="21.071" height="23.354" viewBox="0 0 21.071 23.354">
+        <g id="communications" transform="translate(-1 -0.05)">
+          <path
+            id="Pfad_41"
+            data-name="Pfad 41"
+            class="cls-1"
+            d="M21,7.483,12.8.577a2.294,2.294,0,0,0-2.927,0L1.8,7.483l9.6,7.492Z"
+            transform="translate(0.136 0)"
+          />
+          <path
+            id="Pfad_42"
+            data-name="Pfad 42"
+            class="cls-1"
+            d="M12.238,15.926a1.065,1.065,0,0,1-1.4,0L1,8.317V19.672a2.348,2.348,0,0,0,2.341,2.341H19.73a2.348,2.348,0,0,0,2.341-2.341V8.2Z"
+            transform="translate(0 1.391)"
+          />
+        </g>
+      </svg>
+      <input
+        type="text"
+        [(ngModel)]="dataService.loginCredential"
+        placeholder="Username / E-Mail"
+      />
     </div>
-    <div class="login-data">
-        <div class="username">
-            <svg width="21.071" height="23.354" viewBox="0 0 21.071 23.354">
-                <g id="communications" transform="translate(-1 -0.05)">
-                  <path id="Pfad_41" data-name="Pfad 41" class="cls-1" d="M21,7.483,12.8.577a2.294,2.294,0,0,0-2.927,0L1.8,7.483l9.6,7.492Z" transform="translate(0.136 0)"/>
-                  <path id="Pfad_42" data-name="Pfad 42" class="cls-1" d="M12.238,15.926a1.065,1.065,0,0,1-1.4,0L1,8.317V19.672a2.348,2.348,0,0,0,2.341,2.341H19.73a2.348,2.348,0,0,0,2.341-2.341V8.2Z" transform="translate(0 1.391)"/>
-                </g>
-            </svg>
-            <input type="text" [(ngModel)]="dataService.loginCredential" placeholder="Username / E-Mail">
-        </div>
 
-        <div class="password">
-            <svg width="22.456" height="25.663" viewBox="0 0 22.456 25.663">
-                <path id="lock-solid" class="cls-1" d="M20.05,11.228h-1.2V7.619a7.619,7.619,0,1,0-15.238,0v3.609h-1.2A2.407,2.407,0,0,0,0,13.634v9.624a2.407,2.407,0,0,0,2.406,2.406H20.05a2.407,2.407,0,0,0,2.406-2.406V13.634A2.407,2.407,0,0,0,20.05,11.228Zm-5.213,0H7.619V7.619a3.609,3.609,0,1,1,7.218,0Z"/>
-              </svg>
-            <input type="password" (keyup.enter)="dataService.setLoginData()" [(ngModel)]="dataService.loginPassword" placeholder="Password">
-        </div>
+    <div class="password">
+      <svg width="22.456" height="25.663" viewBox="0 0 22.456 25.663">
+        <path
+          id="lock-solid"
+          class="cls-1"
+          d="M20.05,11.228h-1.2V7.619a7.619,7.619,0,1,0-15.238,0v3.609h-1.2A2.407,2.407,0,0,0,0,13.634v9.624a2.407,2.407,0,0,0,2.406,2.406H20.05a2.407,2.407,0,0,0,2.406-2.406V13.634A2.407,2.407,0,0,0,20.05,11.228Zm-5.213,0H7.619V7.619a3.609,3.609,0,1,1,7.218,0Z"
+        />
+      </svg>
+      <input
+        type="password"
+        (keyup.enter)="dataService.setLoginData()"
+        [(ngModel)]="dataService.loginPassword"
+        placeholder="Password"
+      />
+    </div>
 
-        <button (click)="dataService.setLoginData()" class="login-btn">Login</button>
+    <button (click)="dataService.setLoginData()" class="login-btn">
+      Login
+    </button>
 
-            <label id="missing-account">Don't have an account yet?</label>
-            <a href="/register" id="a-sign-up">Sign up</a>
-        </div>
-
+    <label id="missing-account">Don't have an account yet?</label>
+    <a href="/register" id="a-sign-up">Sign up</a>
+  </div>
 </div>

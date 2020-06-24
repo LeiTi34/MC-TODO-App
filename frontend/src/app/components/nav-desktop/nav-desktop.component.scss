@@ -1,99 +1,97 @@
 @import '../../../styles.scss';
 
 nav {
-    .content {
-        height: 4rem;
-        display: flex;
-        background: $accent;
-        justify-content: center;
-        .branding {
-            display: flex;
-            margin-right: auto;
-            img {
-                margin-left: 1rem;
-                width: 2.8rem;
-            }
-            #name {    
-                fill: #fff;
-                font-size: 2.375rem;
-                font-family: MaiandraGD-Regular, Maiandra GD;
-                margin: 0 1rem 0 1rem;
-                align-self: center;
-            }
-        }
-        
-        .searchbar {
-            width: 40vw;
-            background-color: rgba($white, 0.37);
-            border-radius: 1rem;
-            height: 3rem;
-            align-self: center;
-            display: flex;
-            #search {
-                float: left;
-                height: 100%;
-                margin: 0 1rem;
-
-                .cls-1 {
-                    isolation: isolate;
-                    opacity: 1;
-                }
-            
-                .cls-2 {
-                    fill: $white;
-                    stroke: $white;
-                    opacity: 1;
-                }
-            }
-            #searchterm {
-                flex: 1;
-                height: 100%;
-                margin: 0.45rem 1rem 0 0;
-                
-
-                //color: $grey;
-                //display: flex;
-                //width: 100%;
-                //margin-right: 1rem;
-
-                input {
-                    text-align: right;
-                    height: 2rem;
-                    background-color: transparent;
-                    border: none;
-                    font-size: $font-small;
-                    color: $white;
-                    -webkit-appearance: inherit;
-                    outline-offset: 0;
-                    outline: none;
-                    //flex: 1;
-                    box-sizing: border-box;
-                    width: 100%;
-                }
-        
-                input:focus {
-                    color: $white;
-                }
-            }
-            
-        }
-
-        .borderon {
-            border: 1px solid  $white;
-        }
-
-        .menubar {
-            align-self: center;
-            margin-left: auto;
-            svg {
-                margin-right: 1rem;
-                .cls-1 {
-                    fill: $white;
-                }
-                .cls-2 {
-                    fill: #f70;
-                }
-            }
-        }
+  .content {
+    height: 4rem;
+    display: flex;
+    background: $accent;
+    justify-content: center;
+    .branding {
+      display: flex;
+      margin-right: auto;
+      img {
+        margin-left: 1rem;
+        width: 2.8rem;
+      }
+      #name {
+        fill: #fff;
+        font-size: 2.375rem;
+        font-family: MaiandraGD-Regular, Maiandra GD;
+        margin: 0 1rem 0 1rem;
+        align-self: center;
+      }
     }
+
+    .searchbar {
+      width: 40vw;
+      background-color: rgba($white, 0.37);
+      border-radius: 1rem;
+      height: 3rem;
+      align-self: center;
+      display: flex;
+      #search {
+        float: left;
+        height: 100%;
+        margin: 0 1rem;
+
+        .cls-1 {
+          isolation: isolate;
+          opacity: 1;
+        }
+
+        .cls-2 {
+          fill: $white;
+          stroke: $white;
+          opacity: 1;
+        }
+      }
+      #searchterm {
+        flex: 1;
+        height: 100%;
+        margin: 0.45rem 1rem 0 0;
+
+        //color: $grey;
+        //display: flex;
+        //width: 100%;
+        //margin-right: 1rem;
+
+        input {
+          text-align: right;
+          height: 2rem;
+          background-color: transparent;
+          border: none;
+          font-size: $font-small;
+          color: $white;
+          -webkit-appearance: inherit;
+          outline-offset: 0;
+          outline: none;
+          //flex: 1;
+          box-sizing: border-box;
+          width: 100%;
+        }
+
+        input:focus {
+          color: $white;
+        }
+      }
+    }
+
+    .borderon {
+      border: 1px solid $white;
+    }
+
+    .menubar {
+      align-self: center;
+      margin-left: auto;
+      svg {
+        margin-right: 1rem;
+        .cls-1 {
+          fill: $white;
+        }
+        .cls-2 {
+          fill: #f70;
+        }
+      }
+    }
+  }
 }

@@ -1,30 +1,29 @@
 @import '../../../styles.scss';
 
-.sidebar { 
-    .button {
-        p {
-            margin: 1rem;
-            background-color: $light-blue;
-            padding: 1rem 1rem;
-            border-radius: 1rem;
-            font-size: $font-big;
+.sidebar {
+  .button {
+    p {
+      margin: 1rem;
+      background-color: $light-blue;
+      padding: 1rem 1rem;
+      border-radius: 1rem;
+      font-size: $font-big;
 
-            transition: background-color 0.3s;
-        }
-        transition: margin-left 0.2s linear;
-            
+      transition: background-color 0.3s;
     }
-    #logout {
-        position: absolute;
-        bottom: 4rem;
-        width: 100%;
+    transition: margin-left 0.2s linear;
+  }
+  #logout {
+    position: absolute;
+    bottom: 4rem;
+    width: 100%;
+  }
+
+  .button:hover {
+    p {
+      background-color: rgba($color: $accent, $alpha: 0.3);
     }
 
-    .button:hover {
-        p {
-            background-color: rgba($color: $accent, $alpha: 0.3);
-        }
-        
-        margin-left: 0.3rem
-    }
+    margin-left: 0.3rem;
+  }
 }

@@ -24,11 +24,7 @@ export class SubTodo extends BaseEntity {
   })
   isDone: boolean;
 
-  @ManyToOne(
-    () => Todo,
-    todo => todo.subTodos,
-    { nullable: false },
-  )
+  @ManyToOne(() => Todo, (todo) => todo.subTodos, { nullable: false })
   todo: Todo;
 
   @CreateDateColumn()

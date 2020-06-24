@@ -1,22 +1,22 @@
-import { Todo } from "src/app/interfaces/todo";
+import { Todo } from 'src/app/interfaces/todo';
 
 export const TODOS: Todo[] = [
   {
     id: 1,
     position: 1,
-    title: "Einkaufen",
+    title: 'Einkaufen',
     isDone: false,
     createdDate: new Date(),
     updateDate: new Date(),
     subTodos: [
-      { position: 0, title: "Milch", isDone: false },
-      { position: 1, title: "Eier", isDone: false },
+      { position: 0, title: 'Milch', isDone: false },
+      { position: 1, title: 'Eier', isDone: false },
     ],
   },
   {
     id: 2,
     position: 2,
-    title: "Duschen gehen",
+    title: 'Duschen gehen',
     isDone: false,
     createdDate: new Date(),
     updateDate: new Date(),
@@ -26,7 +26,7 @@ export const TODOS: Todo[] = [
   {
     id: 3,
     position: 3,
-    title: "Haar Waschen",
+    title: 'Haar Waschen',
     isDone: false,
     createdDate: new Date(),
     updateDate: new Date(),
@@ -38,19 +38,19 @@ export const TODOS1: Todo[] = [
   {
     id: 4,
     position: 1,
-    title: "Testen",
+    title: 'Testen',
     isDone: false,
     createdDate: new Date(),
     updateDate: new Date(),
     subTodos: [
-      { position: 0, title: "Coole app!", isDone: false },
-      { position: 1, title: "Eier", isDone: false },
+      { position: 0, title: 'Coole app!', isDone: false },
+      { position: 1, title: 'Eier', isDone: false },
     ],
   },
   {
     id: 5,
     position: 2,
-    title: "Doppeltest",
+    title: 'Doppeltest',
     isDone: true,
     createdDate: new Date(),
     updateDate: new Date(),
@@ -60,7 +60,7 @@ export const TODOS1: Todo[] = [
   {
     id: 6,
     position: 3,
-    title: "Oage Todo",
+    title: 'Oage Todo',
     isDone: false,
     createdDate: new Date(),
     updateDate: new Date(),

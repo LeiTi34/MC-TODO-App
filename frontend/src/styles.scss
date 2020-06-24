@@ -1,25 +1,25 @@
 // Color Palette
 $dark-blue: #101025; // Background
 $light-blue: #181832; // Elements
-$white: #ECF1FF; // Text
-$accent: #7E7EF7; // Accent color
-$grey: #9A9A9A; // Text / Todo done
+$white: #ecf1ff; // Text
+$accent: #7e7ef7; // Accent color
+$grey: #9a9a9a; // Text / Todo done
 // Fonts
-$font1: "Segoe UI";
-$font2: "Montserrat";
+$font1: 'Segoe UI';
+$font2: 'Montserrat';
 $font-sub: 1rem; // Sub-todo
 $font-small: 1.25rem;
 $font-big: 1.5rem;
 html {
-    background: $dark-blue;
-    height: 100%;
-    width: 100%;
+  background: $dark-blue;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    margin: 0;
-    height: 100%;
-    width: 100%;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 h1,
@@ -28,18 +28,18 @@ h3,
 h4,
 h5,
 h6 {
-    color: $white;
-    font-family: $font2;
-    font-weight: 100;
+  color: $white;
+  font-family: $font2;
+  font-weight: 100;
 }
 
 h1 {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 p {
-    font-family: $font1;
-    color: $white;
+  font-family: $font1;
+  color: $white;
 }
 
 // Custom Theming for Angular Material
@@ -58,7 +58,11 @@ $frontend-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $frontend-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
-$frontend-theme: mat-light-theme($frontend-primary, $frontend-accent, $frontend-warn);
+$frontend-theme: mat-light-theme(
+  $frontend-primary,
+  $frontend-accent,
+  $frontend-warn
+);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -79,7 +83,11 @@ $frontend-accent: mat-palette($mat-pink, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $frontend-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
-$frontend-theme: mat-light-theme($frontend-primary, $frontend-accent, $frontend-warn);
+$frontend-theme: mat-light-theme(
+  $frontend-primary,
+  $frontend-accent,
+  $frontend-warn
+);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.

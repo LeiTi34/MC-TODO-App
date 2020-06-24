@@ -8,9 +8,8 @@ describe('SubtodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SubtodoComponent ]
-    })
-    .compileComponents();
+      declarations: [SubtodoComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

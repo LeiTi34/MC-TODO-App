@@ -21,27 +21,16 @@ export class Board extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
-  @ManyToOne(
-    () => User,
-    owner => owner.ownedBoards,
-    { nullable: false },
-  )
+  @ManyToOne(() => User, (owner) => owner.ownedBoards, { nullable: false })
   owner: User;
 
-  @ManyToMany(
-    () => User,
-    attendee => attendee.attendedBoards,
-  )
+  @ManyToMany(() => User, (attendee) => attendee.attendedBoards)
   @JoinTable()
   attendees: User[];
 
-  @OneToMany(
-    () => Todo,
-    todo => todo.board,
-    {
-      cascade: ['remove', 'update'],
-    },
-  )
+  @OneToMany(() => Todo, (todo) => todo.board, {
+    cascade: ['remove', 'update'],
+  })
   todos: Todo[];
 
   @CreateDateColumn()

@@ -1,10 +1,13 @@
 <div class="overview" [class.desktop]="!dataService.isMobile()">
-    <div class="content">
-        <div>
-            <p>Sortiert nach Erstelldatum</p>
-        </div>
-        <div class="wrapper">
-            <app-todo [selectedTodo]="toDo" *ngFor="let toDo of dataService.selectedBoard.todos"></app-todo>
-        </div>
+  <div class="content">
+    <div>
+      <p>Sortiert nach Erstelldatum</p>
     </div>
+    <div class="wrapper">
+      <app-todo
+        [selectedTodo]="toDo"
+        *ngFor="let toDo of dataService.selectedBoard.todos"
+      ></app-todo>
+    </div>
+  </div>
 </div>

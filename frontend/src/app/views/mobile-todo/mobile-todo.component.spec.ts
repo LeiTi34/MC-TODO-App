@@ -8,9 +8,8 @@ describe('MobileTodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MobileTodoComponent ]
-    })
-    .compileComponents();
+      declarations: [MobileTodoComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

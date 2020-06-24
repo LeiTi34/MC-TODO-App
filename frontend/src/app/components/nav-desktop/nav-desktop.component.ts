@@ -4,16 +4,14 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-nav-desktop',
   templateUrl: './nav-desktop.component.html',
-  styleUrls: ['./nav-desktop.component.scss']
+  styleUrls: ['./nav-desktop.component.scss'],
 })
 export class NavDesktopComponent implements OnInit {
-
   @Input() searchterm: string;
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   startSearch(): void {
     this.searchterm = '';
