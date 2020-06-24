@@ -103,7 +103,7 @@ export class DataService {
     console.log(todo);
 
     this.selectedBoard.todos.push(todo);
-    console.log('Added ' + object.name + ' to ' + this.selectedBoard.name);
+    console.log('Added ' + object.title + ' to ' + this.selectedBoard.name);
     console.log(this.boards);
   }
 
@@ -121,7 +121,7 @@ export class DataService {
       .toPromise();
 
     this.selectedTodo = todo;
-    console.log('Updated ' + todo.name);
+    console.log('Updated ' + todo.title);
     //console.log(object);
   }
 
@@ -129,7 +129,7 @@ export class DataService {
     object.isDone = !object.isDone;
     this.updateTodo(object);
     console.log(
-      'Toggled: ' + this.selectedTodo.name + ' : ' + this.selectedTodo.isDone,
+      'Toggled: ' + this.selectedTodo.title + ' : ' + this.selectedTodo.isDone,
     );
   }
 
