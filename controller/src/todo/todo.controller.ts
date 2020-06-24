@@ -12,9 +12,11 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { TodoService } from './todo.service';
 import { Todo } from 'src/entity/todo.entity';
 import { User } from 'src/entity/user.entity';
+import { SubTodo } from 'src/entity/subtodo.entity';
 
 @Controller('todo')
 export class TodoController {
+  subtodoService: any;
   constructor(private readonly todoService: TodoService) {}
 
   @UseGuards(JwtAuthGuard)
@@ -41,5 +43,17 @@ export class TodoController {
   @Delete(':id')
   async remove(@Request() req: any, @Param('id') id: number): Promise<boolean> {
     return await this.todoService.remove(req.user as User, id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post(':id')
+  async saveTodo(
+    @Request() req: any,
+    @Param('id') id: number,
+  ): Promise<SubTodo> {
+    let subTodo = req.body as SubTodo;
+    subTodo.todo = { id: id } as Todo;
+
+    return await this.subtodoService.save(req.user as User, subTodo);
   }
 }
