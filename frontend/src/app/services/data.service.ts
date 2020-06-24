@@ -98,25 +98,32 @@ export class DataService {
 
   public async addTodo(object: Todo): Promise<void> {
     let todo = await this.http
-      .post<Board[]>(this.boardUrl + "/" + this.selectedBoard.id, object, {
+      .post<Todo>(this.boardUrl + "/" + this.selectedBoard.id, object, {
         headers: this.getBearerHeader(),
       })
       .toPromise();
     console.log(todo);
 
-    this.selectedBoard.todos.push(object);
-    console.log("Added " + object.title + " to " + this.selectedBoard.name);
+    this.selectedBoard.todos.push(todo);
+    console.log("Added " + object.name + " to " + this.selectedBoard.name);
     console.log(this.boards);
   }
 
-  public updateTodo(object: Todo): void {
+  public async updateTodo(object: Todo): Promise<void> {
     const updateItem = this.selectedBoard.todos.find(
       (x) => x.position === object.position
     );
     const index = this.selectedBoard.todos.indexOf(updateItem);
     this.selectedBoard.todos[index] = object;
-    this.selectedTodo = object;
-    console.log("Updated " + object.title);
+
+    let todo = await this.http
+      .post<Todo>(this.todoUrl + "/" + updateItem.id, object, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+
+    this.selectedTodo = todo;
+    console.log("Updated " + todo.name);
     //console.log(object);
   }
 
@@ -124,7 +131,7 @@ export class DataService {
     object.isDone = !object.isDone;
     this.updateTodo(object);
     console.log(
-      "Toggled: " + this.selectedTodo.title + " : " + this.selectedTodo.isDone
+      "Toggled: " + this.selectedTodo.name + " : " + this.selectedTodo.isDone
     );
   }
 

@@ -66,8 +66,11 @@ export class Todo extends BaseEntity {
   @Column({ nullable: true })
   dueDate: Date;
 
-  @Column('enum', { enum: RepeatInterval, default: RepeatInterval.None })
-  repeatInterval: RepeatInterval;
+  //@Column('enum', { enum: RepeatInterval, default: RepeatInterval.None })
+  //repeatInterval: RepeatInterval;
+
+  @Column({ nullable: true })
+  repeatInterval: string;
 
   @ManyToOne(
     () => Board,
