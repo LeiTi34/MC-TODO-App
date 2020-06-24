@@ -12,12 +12,14 @@ export class BoardService {
   async find(user: User): Promise<Board[]> {
     let boards = await this.boardRepository.find({
       //select: ['id', 'name', 'createdDate', 'updateDate'],
-      relations: ['owner', 'attendees', 'todos'], //TODO only todo count
+      relations: ['owner', 'attendees', 'todos'],
       where: [
         { owner: { id: user.id } },
         //{ attendees: { id: user.id } } //TODO attendees
       ],
     });
+    console.log('test');
+    console.log(boards);
     return boards;
   }
 

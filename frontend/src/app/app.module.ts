@@ -6,9 +6,6 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 
-import { ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-
 import { OverviewComponent } from "./components/overview/overview.component";
 import { TodoComponent } from "./components/todo/todo.component";
 import { NavMobileComponent } from "./components/nav-mobile/nav-mobile.component";
@@ -32,11 +29,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
-import { NavBackendComponent } from "./components/nav-backend/nav-backend.component";
-import { PanelBackendComponent } from "./components/panel-backend/panel-backend.component";
-import { SidebarBackendComponent } from "./components/sidebar-backend/sidebar-backend.component";
-import { BackendComponent } from "./views/backend/backend.component";
-import { RouterModule } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -65,7 +58,6 @@ import { RouterModule } from "@angular/router";
   ],
   imports: [
     BrowserModule,
-    //RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
@@ -76,6 +68,7 @@ import { RouterModule } from "@angular/router";
     MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
+    HttpClientModule,
   ],
   exports: [MatDatepickerModule, MatFormFieldModule],
   providers: [

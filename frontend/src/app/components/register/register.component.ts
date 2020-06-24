@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-register',
@@ -9,27 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm;
-
-  constructor(private formBuilder : FormBuilder, private http : HttpClient) { 
-
-    this.registerForm = this.formBuilder.group(
-      {
-        username: '',
-        email: '',
-        password: ''
-      });
-
-  }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
   }
-
-  onSubmit(userdata: { username: string; email: string; password: string }){
-    this.http.post('http://localhost:3000/auth/register', userdata)
-    .subscribe(responseData => {
-      console.log(responseData);
-    });
-  }
-
 }

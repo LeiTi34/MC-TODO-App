@@ -18,14 +18,14 @@
                   </g>
                 </g>
               </svg>
-            <input type="text" placeholder="Username">
+            <input type="text" [(ngModel)]="dataService.selectedUser.username"  placeholder="Username">
         </div>
 
         <div class="password">
             <svg width="22.456" height="25.663" viewBox="0 0 22.456 25.663">
                 <path id="lock-solid" class="cls-1" d="M20.05,11.228h-1.2V7.619a7.619,7.619,0,1,0-15.238,0v3.609h-1.2A2.407,2.407,0,0,0,0,13.634v9.624a2.407,2.407,0,0,0,2.406,2.406H20.05a2.407,2.407,0,0,0,2.406-2.406V13.634A2.407,2.407,0,0,0,20.05,11.228Zm-5.213,0H7.619V7.619a3.609,3.609,0,1,1,7.218,0Z"/>
             </svg>
-            <input type="password" placeholder="Password">
+            <input type="password" [(ngModel)]="dataService.selectedUser.password" placeholder="Password">
         </div>
 
         <div class="email">
@@ -35,10 +35,10 @@
                   <path id="Pfad_42" data-name="Pfad 42" class="cls-1" d="M12.238,15.926a1.065,1.065,0,0,1-1.4,0L1,8.317V19.672a2.348,2.348,0,0,0,2.341,2.341H19.73a2.348,2.348,0,0,0,2.341-2.341V8.2Z" transform="translate(0 1.391)"/>
                 </g>
             </svg>
-            <input type="email" placeholder="E-Mail">
+            <input type="email" [(ngModel)]="dataService.selectedUser.email" (keyup.enter)="dataService.register(dataService.selectedUser)" placeholder="E-Mail">
         </div>
 
-        <button class="signup-btn">Sign up</button>
+        <button (click)="dataService.register(dataService.selectedUser)" class="signup-btn">Sign up</button>
 
         <label id="missing-account">Already have an account?</label>
         <a href="/login" id="a-login">Log In</a>
