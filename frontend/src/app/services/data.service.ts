@@ -4,10 +4,8 @@ import { SubTodo } from "../interfaces/sub-todo";
 import { Board } from "../interfaces/board";
 import { User } from "../interfaces/user";
 import { BOARDS } from "../mock-boards";
-import { Observable } from "rxjs/internal/Observable";
 import { Token } from "../interfaces/token";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { of } from "rxjs";
 import { Router } from "@angular/router";
 
 @Injectable({
