@@ -7,8 +7,8 @@ import { BOARDS } from "../mock-boards";
 import { Observable } from "rxjs/internal/Observable";
 import { Token } from "../interfaces/token";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { of } from 'rxjs';
-import { Router } from '@angular/router';
+import { of } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -38,21 +38,21 @@ export class DataService {
 
   public notification = false;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-    ) {
-      this.selectedUser = { username: "", password: "", email: ""};
-    }
+  constructor(private http: HttpClient, private router: Router) {
+    this.selectedUser = { username: "", password: "", email: "" };
+  }
 
-  public login(user: User): boolean {
+  public async login(user: User): Promise<boolean> {
     console.log(user);
-    this.http
+    this.token = await this.http
       .post<Token>(this.loginUrl, user, this.httpOptions)
-      .subscribe((data) => (this.token = data));
+      .toPromise();
+    //.subscribe((data) => (this.token = data));
+
+    console.log(this.token);
 
     if (this.token != null) {
-      this.router.navigate(['/boards']);
+      this.router.navigate(["/boards"]);
     }
     return this.token != null;
   }
@@ -64,7 +64,7 @@ export class DataService {
       .subscribe((data) => (this.token = data));
 
     if (this.token != null) {
-      this.router.navigate(['/boards']);
+      this.router.navigate(["/boards"]);
     }
     return this.token != null;
   }
