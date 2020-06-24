@@ -29,7 +29,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
-
 import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
@@ -52,9 +51,15 @@ import { HttpClientModule } from "@angular/common/http";
     BoardComponent,
     DesktopComponent,
     NavDesktopComponent,
+    NavBackendComponent,
+    PanelBackendComponent,
+    SidebarBackendComponent,
+    BackendComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,

@@ -2,7 +2,7 @@
     <div class="logo-img">
         <img id="logo" src="../../../assets/svg/taco.svg" alt="tacotodo-logo">
     </div>
-    <div class="register-data">
+    <!--     <div class="register-data">
         <div class="username">
             <svg width="21.082" height="25.639" viewBox="0 0 21.082 25.639">
                 <g id="Gruppe_34" data-name="Gruppe 34" transform="translate(0 -370)">
@@ -42,5 +42,29 @@
 
         <label id="missing-account">Already have an account?</label>
         <a href="/login" id="a-login">Log In</a>
-    </div>
+    </div> -->
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+        <div class="register-data">
+            <div class="username">
+                <img src="../../../assets/svg/user.svg" alt="username-icon">
+                <input type="text" placeholder="Username" formControlName="username">
+            </div>
+
+            <div class="password">
+                <img src="../../../assets/svg/lock-solid.svg" alt="password-icon">
+                <input type="password" placeholder="Password" formControlName="password">
+            </div>
+
+            <div class="email">
+                <img src="../../../assets/svg/communications.svg" alt="password-icon">
+                <input type="email" placeholder="E-Mail" formControlName="email">
+            </div>
+
+            <button class="signup-btn" type="submit">Sign up</button>
+
+            <label id="missing-account">Already have an account?</label>
+            <a href="/login" id="a-login">Log In</a>
+        </div>
+    </form>
 </div>

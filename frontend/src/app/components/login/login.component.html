@@ -20,16 +20,11 @@
             <input type="password" (keyup.enter)="dataService.setLoginData()" [(ngModel)]="dataService.loginPassword" placeholder="Password">
         </div>
 
-        <div class="remember-me">
-            <input type="checkbox" id="cb-remember-me">
-            <label for="cb-remember-me">Remember me?</label>
-        </div>
-
         <button (click)="dataService.setLoginData()" class="login-btn">Login</button>
 
-        <a id="forgot-pw" href="#">Forgot password?</a>
+            <label id="missing-account">Don't have an account yet?</label>
+            <a href="/register" id="a-sign-up">Sign up</a>
+        </div>
+    </form>
 
-        <label id="missing-account">Don't have an account yet?</label>
-        <a href="/register" id="a-sign-up">Sign up</a>
-    </div>
 </div>
