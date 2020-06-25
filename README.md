@@ -22,6 +22,7 @@ npm run start
 ### 2. Frontend
 
 ```bash
+cd frontend
 npm install
 ng serve --open
 ```
