@@ -10,6 +10,7 @@ docker build . -t docker_username/postgres
 docker run --name pg -p 5432:5432 -d docker_username/postgres
 docker start pg
 ```
+Note: Since the database is running on a web-server, step 1 can be skipped.
 
 ### 2. Controller
 
