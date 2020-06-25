@@ -226,6 +226,7 @@ export class DataService {
       .toPromise();
     this.selectedBoard.todos.splice(index, 1);
     this.router.navigate(['/todos']);
+    document.getElementById('app-todo-detail').classList.add('hidden');
   }
 
   isMobile(): boolean {
