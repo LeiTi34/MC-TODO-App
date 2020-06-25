@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from 'src/entity/todo.entity';
 import { Board } from 'src/entity/board.entity';
-import { Connection } from 'typeorm';
+import { Connection, MoreThan } from 'typeorm';
 import { User } from 'src/entity/user.entity';
 import { SubtodoService } from 'src/subtodo/subtodo.service';
 import { isNullOrUndefined } from 'util';
@@ -43,6 +43,9 @@ export class TodoService {
       where: { id: id },
     });
 
+    const position = currentTodo.position;
+    const boardId = currentTodo.board.id;
+
     if (currentTodo?.board?.owner?.id == user.id) {
       for (const st of currentTodo.subTodos) {
         await this.subtodoService.remove(user, st.id);
@@ -53,6 +56,24 @@ export class TodoService {
       }
 
       await this.todoRepository.remove(currentTodo);
+
+      let todos = await this.todoRepository.find({
+        relations: ['board'],
+        where: { board: { id: boardId }, position: MoreThan(position) },
+      });
+
+      todos = todos.sort((a, b) => {
+        if (a.position > b.position) return 1;
+        if (a.position < b.position) return -1;
+        return 0;
+      });
+
+      for (const t of todos) {
+        let newT = t;
+        newT.position = (newT.position as number)--;
+        await this.todoRepository.update(newT.id, newT);
+      }
+
       return true;
     }
     return false;
