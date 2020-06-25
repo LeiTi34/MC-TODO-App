@@ -19,7 +19,7 @@ npm install
 npm run start
 ```
 
-### 2. Frontend
+### 3. Frontend
 
 ```bash
 cd frontend
