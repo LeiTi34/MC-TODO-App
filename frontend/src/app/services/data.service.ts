@@ -121,16 +121,6 @@ export class DataService {
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   }
 
-  public delete(): void {
-    const updateItem = this.selectedBoard.todos.find(
-      (x) => x.position === this.selectedTodo.position,
-    );
-    const index = this.selectedBoard.todos.indexOf(updateItem);
-    this.selectedBoard.todos.splice(index, 1);
-    this.updateTodo(this.selectedTodo);
-    this.router.navigate(['/todos']);
-  }
-
   public async addTodo(object: Todo): Promise<void> {
     const todo = await this.http
       .post<Todo>(this.boardUrl + '/' + this.selectedBoard.id, object, {
@@ -200,9 +190,10 @@ export class DataService {
       })
       .toPromise();
     this.selectedTodo.subTodos.splice(index, 1);
+    this.router.navigate(['/todos']);
   }
 
-  async deleteTodo(object: SubTodo): Promise<void> {
+  async deleteTodo(object: Todo): Promise<void> {
     const updateItem = this.selectedBoard.todos.find(
       (x) => x.position === object.position,
     );
