@@ -117,7 +117,7 @@ export class DataService {
     this.wrongCredential = false;
   }
 
-  public drop(event: CdkDragDrop<Todo[]>) {
+  public async drop(event: CdkDragDrop<Todo[]>) {
     console.log(this.selectedBoard);
     moveItemInArray(
       event.container.data,
@@ -126,7 +126,16 @@ export class DataService {
     );
 
     this.position();
-    //TODO delete board and add new
+    await this.http
+      .put<Board>(
+        this.todoUrl +
+          '/' +
+          this.selectedBoard.todos[event.currentIndex].id +
+          '/' +
+          event.currentIndex,
+        this.getBearerHeader(),
+      )
+      .toPromise();
   }
 
   public position(): void {
