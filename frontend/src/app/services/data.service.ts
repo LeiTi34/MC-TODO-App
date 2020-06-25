@@ -158,15 +158,26 @@ export class DataService {
       (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
-    //if (
     await this.http
       .delete<boolean>(this.subTodoUrl + '/' + object.id, {
         headers: this.getBearerHeader(),
       })
       .toPromise();
-    //)
     this.selectedTodo.subTodos.splice(index, 1);
-    //this.updateTodo(this.selectedTodo);
+  }
+
+  async deleteTodo(object: SubTodo): Promise<void> {
+    const updateItem = this.selectedBoard.todos.find(
+      (x) => x.position === object.position,
+    );
+    const index = this.selectedBoard.todos.indexOf(updateItem);
+
+    await this.http
+      .delete<boolean>(this.todoUrl + '/' + object.id, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+    this.selectedBoard.todos.splice(index, 1);
   }
 
   isMobile(): boolean {
