@@ -42,14 +42,22 @@ export class Todo extends BaseEntity {
   @Column({ nullable: true })
   note: string;
 
-  @OneToMany(() => SubTodo, (subTodo) => subTodo.todo, {
-    cascade: ['remove', 'update'],
-  })
+  @OneToMany(
+    () => SubTodo,
+    subTodo => subTodo.todo,
+    {
+      cascade: ['remove', 'update'],
+    },
+  )
   subTodos: SubTodo[];
 
-  @OneToOne(() => Attachment, (attachment) => attachment.todo, {
-    cascade: ['remove', 'update'],
-  })
+  @OneToOne(
+    () => Attachment,
+    attachment => attachment.todo,
+    {
+      cascade: ['remove', 'update'],
+    },
+  )
   attachment: Attachment;
 
   @Column({ nullable: true })
@@ -64,11 +72,15 @@ export class Todo extends BaseEntity {
   @Column({ nullable: true })
   repeatInterval: string;
 
-  @ManyToOne(() => Board, (board) => board.todos, { nullable: false })
+  @ManyToOne(
+    () => Board,
+    board => board.todos,
+    { nullable: false },
+  )
   board: Board;
 
   @Column({ nullable: false })
-  position: Number;
+  position: number;
 
   @CreateDateColumn()
   createdDate: Date;

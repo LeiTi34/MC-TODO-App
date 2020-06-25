@@ -62,15 +62,11 @@ export class TodoService {
         where: { board: { id: boardId }, position: MoreThan(position) },
       });
 
-      todos = todos.sort((a, b) => {
-        if (a.position > b.position) return 1;
-        if (a.position < b.position) return -1;
-        return 0;
-      });
+      todos = todos.sort((a, b) => a.position - b.position);
 
       for (const t of todos) {
         let newT = t;
-        newT.position = (newT.position as number)--;
+        newT.position = newT.position - 1;
         await this.todoRepository.update(newT.id, newT);
       }
 
