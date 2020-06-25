@@ -18,7 +18,8 @@ export class DataService {
   private loginUrl = this.Url + '/auth/login';
   private registerUrl = this.Url + '/auth/register';
   private boardUrl = this.Url + '/board';
-  private todoUrl = this.Url + '/board';
+  private todoUrl = this.Url + '/todo';
+  private subTodoUrl = this.Url + '/subtodo';
   private token: Token;
 
   httpOptions = {
@@ -150,8 +151,8 @@ export class DataService {
     const index = this.selectedBoard.todos.indexOf(updateItem);
     this.selectedBoard.todos[index] = object;
 
-    const todo = await this.http
-      .post<Todo>(this.todoUrl + '/' + updateItem.id, object, {
+    let todo = await this.http
+      .post<Todo>(this.boardUrl + '/' + updateItem.id, object, {
         headers: this.getBearerHeader(),
       })
       .toPromise();
@@ -169,22 +170,50 @@ export class DataService {
     );
   }
 
-  triggerSubDone(object: SubTodo): void {
+  public async addSubTodo(object: SubTodo): Promise<SubTodo> {
+    let subTodo = await this.http
+      .post<SubTodo>(this.todoUrl + '/' + this.selectedTodo.id, object, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+    console.log(subTodo);
+
+    return subTodo;
+  }
+  async triggerSubDone(object: SubTodo): Promise<void> {
     const updateItem = this.selectedTodo.subTodos.find(
       (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
     object.isDone = !object.isDone;
-    this.selectedTodo.subTodos[index] = object;
+    this.selectedTodo.subTodos[index] = await this.addSubTodo(object);
   }
 
-  deleteSub(object: SubTodo): void {
+  async deleteSub(object: SubTodo): Promise<void> {
     const updateItem = this.selectedTodo.subTodos.find(
       (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
+    await this.http
+      .delete<boolean>(this.subTodoUrl + '/' + object.id, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
     this.selectedTodo.subTodos.splice(index, 1);
-    this.updateTodo(this.selectedTodo);
+  }
+
+  async deleteTodo(object: SubTodo): Promise<void> {
+    const updateItem = this.selectedBoard.todos.find(
+      (x) => x.position === object.position,
+    );
+    const index = this.selectedBoard.todos.indexOf(updateItem);
+
+    await this.http
+      .delete<boolean>(this.todoUrl + '/' + object.id, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+    this.selectedBoard.todos.splice(index, 1);
   }
 
   isMobile(): boolean {

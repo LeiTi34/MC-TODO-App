@@ -18,14 +18,14 @@ import { SubTodo } from 'src/entity/subtodo.entity';
 export class SubtodoController {
   constructor(private readonly subtodoService: SubtodoService) {}
 
-  //@UseGuards(JwtAuthGuard)
-  //@Post()
-  //async save(@Request() req: any): Promise<SubTodo> {
-  //return await this.subtodoService.save(
-  //req.user as User,
-  //req.body as SubTodo,
-  //);
-  //}
+  @UseGuards(JwtAuthGuard)
+  @Post()
+  async save(@Request() req: any): Promise<SubTodo> {
+    return await this.subtodoService.save(
+      req.user as User,
+      req.body as SubTodo,
+    );
+  }
 
   //@UseGuards(JwtAuthGuard)
   //@Get(':id')
@@ -41,9 +41,9 @@ export class SubtodoController {
   //return await this.subtodoService.update(req.user as User, todo);
   //}
 
-  //@UseGuards(JwtAuthGuard)
-  //@Delete(':id')
-  //async remove(@Request() req: any, @Param('id') id: number): Promise<boolean> {
-  //return await this.subtodoService.remove(req.user as User, id);
-  //}
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  async remove(@Request() req: any, @Param('id') id: number): Promise<boolean> {
+    return await this.subtodoService.remove(req.user as User, id);
+  }
 }

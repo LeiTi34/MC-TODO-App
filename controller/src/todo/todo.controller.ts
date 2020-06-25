@@ -13,11 +13,14 @@ import { TodoService } from './todo.service';
 import { Todo } from 'src/entity/todo.entity';
 import { User } from 'src/entity/user.entity';
 import { SubTodo } from 'src/entity/subtodo.entity';
+import { SubtodoService } from 'src/subtodo/subtodo.service';
 
 @Controller('todo')
 export class TodoController {
-  subtodoService: any;
-  constructor(private readonly todoService: TodoService) {}
+  constructor(
+    private readonly todoService: TodoService,
+    private readonly subtodoService: SubtodoService,
+  ) {}
 
   @UseGuards(JwtAuthGuard)
   @Post()
@@ -47,12 +50,12 @@ export class TodoController {
 
   @UseGuards(JwtAuthGuard)
   @Post(':id')
-  async saveTodo(
+  async saveSubTodo(
     @Request() req: any,
     @Param('id') id: number,
   ): Promise<SubTodo> {
     let subTodo = req.body as SubTodo;
-    subTodo.todo = { id: id } as Todo;
+    subTodo.todo = { id: id as number } as Todo;
 
     return await this.subtodoService.save(req.user as User, subTodo);
   }
