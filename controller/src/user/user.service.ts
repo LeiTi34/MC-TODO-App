@@ -21,7 +21,7 @@ export class UserService {
 
   async save(user: User): Promise<User | undefined> {
     if ((await this.repository.findOne({ username: user.username })) !== null) {
-      const newUser = await this.repository.save(user);
+      let newUser = await this.repository.save(user);
       this.boadService.save(newUser, { name: 'Default' } as Board);
       return newUser;
     } else throw new UnauthorizedException();
