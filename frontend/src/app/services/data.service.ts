@@ -27,7 +27,7 @@ export class DataService {
   };
 
   //public $todos: Todo[] = TODOS;
-  public boards: Board[] = BOARDS;
+  public boards: Board[] = undefined;
   public selectedBoard: Board = BOARDS[0];
   public selectedTodo: Todo = undefined;
   public selectedUser: User;
@@ -131,6 +131,7 @@ export class DataService {
     console.log(event.currentIndex);
     
     console.log(this.selectedBoard);
+    this.position();
   }
 
   public position(): void {
@@ -226,6 +227,7 @@ export class DataService {
       .toPromise();
     this.selectedBoard.todos.splice(index, 1);
     this.router.navigate(['/todos']);
+    document.getElementById('app-todo-detail').classList.add('hidden');
   }
 
   isMobile(): boolean {
