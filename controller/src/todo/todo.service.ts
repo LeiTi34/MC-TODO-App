@@ -120,10 +120,10 @@ export class TodoService {
       let from: number;
       let to: number;
       if (newPosition > currentTodo.position) {
-        to = newPosition;
+        to = newPosition - 1;
         from = currentTodo.position;
       } else if (newPosition < currentTodo.position) {
-        from = newPosition;
+        from = newPosition + 1;
         to = currentTodo.position;
       } else return null;
 
@@ -140,8 +140,23 @@ export class TodoService {
       todos.forEach(t => {
         if (t.position <= to) tmpTodos.push(t);
       });
-      tmpTodos = tmpTodos.sort((a, b) => a.position - b.position);
 
+      currentTodo.position = maxPos + 1;
+      await this.update(user, currentTodo);
+      if (from == newPosition + 1) {
+        tmpTodos = tmpTodos.sort((a, b) => a.position - b.position);
+        tmpTodos.forEach(async t => {
+          t.position--;
+          await this.update(user, t);
+        });
+      } else {
+        tmpTodos = tmpTodos.sort((a, b) => b.position - a.position);
+        tmpTodos.forEach(async t => {
+          t.position++;
+          await this.update(user, t);
+        });
+      }
+      currentTodo.position = newPosition;
       await this.update(user, currentTodo);
     }
     return null;

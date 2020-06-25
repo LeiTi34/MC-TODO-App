@@ -14,6 +14,7 @@ import { Todo } from 'src/entity/todo.entity';
 import { User } from 'src/entity/user.entity';
 import { SubTodo } from 'src/entity/subtodo.entity';
 import { SubtodoService } from 'src/subtodo/subtodo.service';
+import { Board } from 'src/entity/board.entity';
 
 @Controller('todo')
 export class TodoController {
@@ -66,7 +67,7 @@ export class TodoController {
     @Request() req: any,
     @Param('id') id: number,
     @Param('newpos') newpos: number,
-  ): Promise<boolean> {
+  ): Promise<Board> {
     return await this.todoService.updatePos(req.user as User, id, newpos);
   }
 }
