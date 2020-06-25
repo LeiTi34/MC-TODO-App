@@ -1,7 +1,7 @@
 <div class="todo-detail" [class.desktop]="!dataService.isMobile()">
-  <div class="content">
+  <div class="content-all">
     <div class="todo">
-      <div class="todo-main" [class.done]="dataService.selectedTodo.isDone">
+      <div class="todo-main" [class.done]="dataService.selectedTodo?.isDone">
         <svg
           (click)="dataService.triggerDone(currentTodo)"
           id="todo-check"
@@ -30,13 +30,13 @@
         </svg>
 
         <div class="todo-content">
-          <p id="todo-name">{{ dataService.selectedTodo.title }}</p>
+          <p id="todo-name">{{ dataService.selectedTodo?.title }}</p>
         </div>
       </div>
 
       <app-subtodo
         [selectedSubTodo]="subTodo"
-        *ngFor="let subTodo of dataService.selectedTodo.subTodos"
+        *ngFor="let subTodo of dataService.selectedTodo?.subTodos"
       ></app-subtodo>
 
       <div class="todo-add">
