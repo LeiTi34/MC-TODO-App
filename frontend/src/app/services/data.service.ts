@@ -143,7 +143,7 @@ export class DataService {
 
     return subTodo;
   }
-  async triggerSubDone(object: SubTodo): void {
+  async triggerSubDone(object: SubTodo): Promise<void> {
     const updateItem = this.selectedTodo.subTodos.find(
       (x) => x.position === object.position,
     );
