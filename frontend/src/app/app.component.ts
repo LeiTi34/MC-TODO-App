@@ -15,9 +15,8 @@ export class AppComponent {
   }
 
   @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
+  public getScreenSize(event?) {
     this.dataService.width = window.innerWidth;
     this.dataService.height = window.innerHeight;
-    console.log(this.dataService.height, this.dataService.width);
   }
 }

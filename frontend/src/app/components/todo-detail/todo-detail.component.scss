@@ -347,6 +347,20 @@ $transition-time: 250ms;
         color: $white;
       }
     }
+
+    .delete {
+      margin-top: 1rem;
+      border-radius: 1rem;
+      background-color: $light-blue;
+      min-height: 2rem;
+      color: darkred;
+      font-weight: 600;
+
+      .button {
+        text-align: center;
+        padding-top: 0.5rem;
+      }
+    }
   }
   // Scrollbar
   ::-webkit-scrollbar {

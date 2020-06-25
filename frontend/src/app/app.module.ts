@@ -35,6 +35,8 @@ import { PanelBackendComponent } from './components/panel-backend/panel-backend.
 import { SidebarBackendComponent } from './components/sidebar-backend/sidebar-backend.component';
 import { BackendComponent } from './views/backend/backend.component';
 
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +75,7 @@ import { BackendComponent } from './views/backend/backend.component';
     MatNativeDateModule,
     MatInputModule,
     HttpClientModule,
+    DragDropModule,
   ],
   exports: [MatDatepickerModule, MatFormFieldModule],
   providers: [

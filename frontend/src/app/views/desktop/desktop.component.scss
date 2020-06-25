@@ -15,8 +15,14 @@
       }
     }
     .todo-detail {
-      max-width: 25vw;
+      max-width: 24vw;
       min-width: 24vw;
+      width: unset;
+      margin-right: 0;
+      transition: margin linear 0.3s;
+    }
+    .todo-detail.hidden {
+      margin-right: -24vw;
     }
   }
 }

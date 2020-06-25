@@ -57,6 +57,12 @@ div.password,
 div.email {
   border-bottom: 0.8px solid $accent;
   margin-bottom: 1.5rem;
+  transition: border-bottom linear 0.3s;
+}
+div.username.wrong,
+div.password.wrong,
+div.email.wrong {
+  border-bottom: 0.8px solid orangered;
 }
 
 div.username img,

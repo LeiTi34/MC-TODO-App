@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Component } from '@angular/core';
 import { Todo } from '../interfaces/todo';
 import { SubTodo } from '../interfaces/sub-todo';
 import { Board } from '../interfaces/board';
@@ -7,6 +7,7 @@ import { BOARDS } from '../mock-boards';
 import { Token } from '../interfaces/token';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Injectable({
   providedIn: 'root',
@@ -27,11 +28,12 @@ export class DataService {
   //public $todos: Todo[] = TODOS;
   public boards: Board[] = BOARDS;
   public selectedBoard: Board = BOARDS[0];
-  public selectedTodo: Todo;
+  public selectedTodo: Todo = undefined;
   public selectedUser: User;
 
-  public loginCredential: string;
+  public loginCredential = '';
   public loginPassword: string;
+  public wrongCredential = false;
 
   public width = 0;
   public height = 0;
@@ -51,28 +53,44 @@ export class DataService {
 
   public async login(user: User): Promise<boolean> {
     console.log(user);
-    this.token = await this.http
+    try {
+      this.token = await this.http
       .post<Token>(this.loginUrl, user, this.httpOptions)
       .toPromise();
 
-    console.log(this.token);
+      console.log(this.token);
 
-    await this.getBoards();
+      await this.getBoards();
+    } catch (error) {
+      console.error(error);
+    }
 
     if (this.token != null) {
       this.router.navigate(['/boards']);
+      this.wrongCredential = false;
+    } else {
+      this.wrongCredential = true;
+      console.log(this.wrongCredential);
     }
     return this.token != null;
   }
 
   public async register(user: User): Promise<boolean> {
     console.log(user);
-    this.token = await this.http
-      .post<Token>(this.registerUrl, user, this.httpOptions)
-      .toPromise();
+    try {
+      this.token = await this.http
+        .post<Token>(this.registerUrl, user, this.httpOptions)
+        .toPromise();
+    } catch (error) {
+      console.error(error);
+    }
 
     if (this.token != null) {
       this.router.navigate(['/boards']);
+      this.wrongCredential = false;
+    } else {
+      this.wrongCredential = true;
+      console.log(this.wrongCredential);
     }
     return this.token != null;
   }
@@ -94,8 +112,26 @@ export class DataService {
     this.login(this.selectedUser);
   }
 
+  public toggleWrongCredentials(): void {
+    this.wrongCredential = false;
+  }
+
+  public drop(event: CdkDragDrop<Todo[]>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  }
+
+  public delete(): void {
+    const updateItem = this.selectedBoard.todos.find(
+      (x) => x.position === this.selectedTodo.position,
+    );
+    const index = this.selectedBoard.todos.indexOf(updateItem);
+    this.selectedBoard.todos.splice(index, 1);
+    this.updateTodo(this.selectedTodo);
+    this.router.navigate(['/todos']);
+  }
+
   public async addTodo(object: Todo): Promise<void> {
-    let todo = await this.http
+    const todo = await this.http
       .post<Todo>(this.boardUrl + '/' + this.selectedBoard.id, object, {
         headers: this.getBearerHeader(),
       })
@@ -114,7 +150,7 @@ export class DataService {
     const index = this.selectedBoard.todos.indexOf(updateItem);
     this.selectedBoard.todos[index] = object;
 
-    let todo = await this.http
+    const todo = await this.http
       .post<Todo>(this.todoUrl + '/' + updateItem.id, object, {
         headers: this.getBearerHeader(),
       })

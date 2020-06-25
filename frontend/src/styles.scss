@@ -42,6 +42,27 @@ p {
   color: $white;
 }
 
+// Drag and drop stuff
+.cdk-drag-placeholder {
+  .todo {
+    opacity: 0;
+  }
+}
+
+.cdk-drag-preview {
+  .todo {
+    border: 1px solid $accent
+  }
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.wrapper.cdk-drop-list-dragging app-todo:not(.cdk-drag-placeholder) {
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';

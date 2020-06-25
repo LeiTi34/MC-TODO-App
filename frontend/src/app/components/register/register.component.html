@@ -3,7 +3,7 @@
     <img id="logo" src="../../../assets/svg/taco.svg" alt="tacotodo-logo" />
   </div>
   <div class="register-data">
-    <div class="username">
+    <div class="username" [class.wrong]="dataService.wrongCredential">
       <svg width="21.082" height="25.639" viewBox="0 0 21.082 25.639">
         <g id="Gruppe_34" data-name="Gruppe 34" transform="translate(0 -370)">
           <g
@@ -41,11 +41,13 @@
       <input
         type="text"
         [(ngModel)]="dataService.selectedUser.username"
+        (keyup.enter)="dataService.register(dataService.selectedUser)"
         placeholder="Username"
+        (blur)="dataService.toggleWrongCredentials()"
       />
     </div>
 
-    <div class="password">
+    <div class="password" [class.wrong]="dataService.wrongCredential">
       <svg width="22.456" height="25.663" viewBox="0 0 22.456 25.663">
         <path
           id="lock-solid"
@@ -55,12 +57,14 @@
       </svg>
       <input
         type="password"
+        (keyup.enter)="dataService.register(dataService.selectedUser)"
         [(ngModel)]="dataService.selectedUser.password"
         placeholder="Password"
+        (blur)="dataService.toggleWrongCredentials()"
       />
     </div>
 
-    <div class="email">
+    <div class="email" [class.wrong]="dataService.wrongCredential">
       <svg width="21.071" height="23.354" viewBox="0 0 21.071 23.354">
         <g id="communications" transform="translate(-1 -0.05)">
           <path
@@ -84,6 +88,7 @@
         [(ngModel)]="dataService.selectedUser.email"
         (keyup.enter)="dataService.register(dataService.selectedUser)"
         placeholder="E-Mail"
+        (blur)="dataService.toggleWrongCredentials()"
       />
     </div>
 

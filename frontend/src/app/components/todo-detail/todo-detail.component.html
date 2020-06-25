@@ -187,5 +187,11 @@
         ng-blur="updateNotes()"
       />
     </div>
+
+    <div class="delete">
+      <div class="button" (click)="dataService.delete()">
+        Delete ToDo
+      </div>
+    </div>
   </div>
 </div>

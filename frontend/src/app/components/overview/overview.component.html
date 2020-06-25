@@ -3,10 +3,12 @@
     <div>
       <p>Sortiert nach Erstelldatum</p>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" cdkDropList [cdkDropListData]="dataService.selectedBoard.todos"
+    (cdkDropListDropped)="dataService.drop($event)">
       <app-todo
         [selectedTodo]="toDo"
         *ngFor="let toDo of dataService.selectedBoard.todos"
+        cdkDrag
       ></app-todo>
     </div>
   </div>

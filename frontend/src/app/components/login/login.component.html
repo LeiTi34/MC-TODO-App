@@ -3,7 +3,7 @@
     <img id="logo" src="../../../assets/svg/taco.svg" alt="tacotodo-logo" />
   </div>
   <div class="login-data">
-    <div class="username">
+    <div class="username" [class.wrong]="dataService.wrongCredential">
       <svg width="21.071" height="23.354" viewBox="0 0 21.071 23.354">
         <g id="communications" transform="translate(-1 -0.05)">
           <path
@@ -25,11 +25,13 @@
       <input
         type="text"
         [(ngModel)]="dataService.loginCredential"
+        (keyup.enter)="dataService.setLoginData()"
         placeholder="Username / E-Mail"
+        (blur)="dataService.toggleWrongCredentials()"
       />
     </div>
 
-    <div class="password">
+    <div class="password" [class.wrong]="dataService.wrongCredential">
       <svg width="22.456" height="25.663" viewBox="0 0 22.456 25.663">
         <path
           id="lock-solid"
@@ -42,6 +44,7 @@
         (keyup.enter)="dataService.setLoginData()"
         [(ngModel)]="dataService.loginPassword"
         placeholder="Password"
+        (blur)="dataService.toggleWrongCredentials()"
       />
     </div>
 

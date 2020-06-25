@@ -3,7 +3,7 @@
   <div class="content">
     <div class="greeting">
       <h1>Your boards</h1>
-      <p>Hi Daniel, what do you want to do today?</p>
+      <p>Hi {{dataService.selectedUser.username | titlecase}}, what do you want to do today?</p>
     </div>
 
     <div class="boards" [class.desktop]="!dataService.isMobile()">

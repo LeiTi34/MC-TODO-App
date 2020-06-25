@@ -55,6 +55,11 @@ a#a-sign-up {
 div.username,
 div.password {
   border-bottom: 0.8px solid $accent;
+  transition: border-bottom linear 0.3s;
+}
+div.username.wrong,
+div.password.wrong {
+  border-bottom: 0.8px solid orangered;
 }
 
 div.username {
