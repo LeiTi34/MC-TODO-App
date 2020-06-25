@@ -31,10 +31,10 @@ export class TodoDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dueDate = this.currentTodo.dueDate;
-    this.reminderDate = this.currentTodo.reminderDate;
-    this.repeatInterval = this.currentTodo.repeatInterval;
-    this.notes = this.currentTodo.note;
+    this.dueDate = this.currentTodo?.dueDate;
+    this.reminderDate = this.currentTodo?.reminderDate;
+    this.repeatInterval = this.currentTodo?.repeatInterval;
+    this.notes = this.currentTodo?.note;
     //this.currentTodo = this.dataService.selectedTodo;
   }
 

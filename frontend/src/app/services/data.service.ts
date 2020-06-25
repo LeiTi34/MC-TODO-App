@@ -118,12 +118,29 @@ export class DataService {
   }
 
   public drop(event: CdkDragDrop<Todo[]>) {
+    
+    console.log(this.selectedBoard);
     moveItemInArray(
       event.container.data,
       event.previousIndex,
       event.currentIndex,
     );
+
+    console.log(event.container.data);
+    console.log(event.previousIndex);
+    console.log(event.currentIndex);
+    
+    console.log(this.selectedBoard);
   }
+
+  public position(): void {
+    let position = 0;
+
+    this.selectedBoard.todos.forEach((todo: Todo) => {
+      position += 1;
+      todo.position = position;
+    });
+}
 
   public async addTodo(object: Todo): Promise<void> {
     const todo = await this.http
