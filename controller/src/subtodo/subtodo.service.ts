@@ -18,7 +18,7 @@ export class SubtodoService {
       relations: ['board', 'board.owner'],
       where: {
         id: subTodo.todo.id,
-        board: { owner: { id: user.id } },
+        //board: { owner: { id: user.id } }, //TODO owner checken
       },
     });
     subTodo.todo = currentTodo;

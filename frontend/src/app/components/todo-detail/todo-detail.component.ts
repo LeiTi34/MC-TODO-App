@@ -70,15 +70,19 @@ export class TodoDetailComponent implements OnInit {
     document.getElementById('noteInput').blur();
   }
 
-  public addSubTodo(): void {
+  public async addSubTodo(): void {
     if (!this.subTodo$.title) {
       return;
     }
     this.subTodo$.position = this.dataService.selectedTodo.subTodos.length + 1;
     //this.dataService.selectedTodo.subTodos.push(this.subTodo$);
-    this.currentTodo.subTodos.push(this.subTodo$);
-    this.dataService.updateTodo(this.currentTodo);
-    console.log(this.currentTodo);
+    //this.currentTodo.subTodos.push(this.subTodo$);
+    //this.dataService.updateTodo(this.currentTodo);
+    //console.log(this.currentTodo);
+
+    this.dataService.selectedTodo.subTodos.push(
+      await this.dataService.addSubTodo(this.subTodo$),
+    );
 
     this.subTodo$ = {
       position: undefined,

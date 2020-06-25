@@ -17,7 +17,7 @@ export class DataService {
   private loginUrl = this.Url + '/auth/login';
   private registerUrl = this.Url + '/auth/register';
   private boardUrl = this.Url + '/board';
-  private todoUrl = this.Url + '/board';
+  private todoUrl = this.Url + '/todo';
   private token: Token;
 
   httpOptions = {
@@ -115,7 +115,7 @@ export class DataService {
     this.selectedBoard.todos[index] = object;
 
     let todo = await this.http
-      .post<Todo>(this.todoUrl + '/' + updateItem.id, object, {
+      .post<Todo>(this.boardUrl + '/' + updateItem.id, object, {
         headers: this.getBearerHeader(),
       })
       .toPromise();
@@ -133,13 +133,23 @@ export class DataService {
     );
   }
 
-  triggerSubDone(object: SubTodo): void {
+  public async addSubTodo(object: SubTodo): Promise<SubTodo> {
+    let subTodo = await this.http
+      .post<SubTodo>(this.todoUrl + '/' + this.selectedTodo.id, object, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+    console.log(subTodo);
+
+    return subTodo;
+  }
+  async triggerSubDone(object: SubTodo): void {
     const updateItem = this.selectedTodo.subTodos.find(
       (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
     object.isDone = !object.isDone;
-    this.selectedTodo.subTodos[index] = object;
+    this.selectedTodo.subTodos[index] = await this.addSubTodo(object);
   }
 
   deleteSub(object: SubTodo): void {
