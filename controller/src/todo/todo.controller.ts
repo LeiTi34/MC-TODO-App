@@ -59,4 +59,14 @@ export class TodoController {
 
     return await this.subtodoService.save(req.user as User, subTodo);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Put(':id/:newpos')
+  async updatePos(
+    @Request() req: any,
+    @Param('id') id: number,
+    @Param('newpos') newpos: number,
+  ): Promise<boolean> {
+    return await this.todoService.updatePos(req.user as User, id, newpos);
+  }
 }

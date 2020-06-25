@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from 'src/entity/todo.entity';
 import { Board } from 'src/entity/board.entity';
-import { Connection, MoreThan } from 'typeorm';
+import { Connection, MoreThan, MoreThanOrEqual, Between } from 'typeorm';
 import { User } from 'src/entity/user.entity';
 import { SubtodoService } from 'src/subtodo/subtodo.service';
 import { isNullOrUndefined } from 'util';
@@ -110,21 +110,39 @@ export class TodoService {
     return null;
   }
 
-  async changePosition(
-    user: User,
-    id: number,
-    newPosition: number,
-  ): Promise<Board> {
+  async updatePos(user: User, id: number, newPosition: number): Promise<Board> {
     const currentTodo = await this.todoRepository.findOne({
       relations: ['board', 'board.owner'],
       where: { id: id },
     });
 
     if (currentTodo?.board?.owner?.id == user.id) {
-      const currentBoard = await this.boardRepository.findOne({
-        relations: ['todos'],
-        where: { id: currentTodo.id },
+      let from: number;
+      let to: number;
+      if (newPosition > currentTodo.position) {
+        to = newPosition;
+        from = currentTodo.position;
+      } else if (newPosition < currentTodo.position) {
+        from = newPosition;
+        to = currentTodo.position;
+      } else return null;
+
+      let todos = await this.todoRepository.find({
+        relations: ['board'],
+        where: {
+          board: { id: currentTodo.id },
+          position: MoreThanOrEqual(from),
+        },
       });
+      let maxPos: number = 1;
+      todos.forEach(t => (maxPos = t.position > maxPos ? t.position : maxPos));
+      let tmpTodos: Todo[];
+      todos.forEach(t => {
+        if (t.position <= to) tmpTodos.push(t);
+      });
+      tmpTodos = tmpTodos.sort((a, b) => a.position - b.position);
+
+      await this.update(user, currentTodo);
     }
     return null;
   }
