@@ -56,8 +56,8 @@ export class DataService {
     console.log(user);
     try {
       this.token = await this.http
-      .post<Token>(this.loginUrl, user, this.httpOptions)
-      .toPromise();
+        .post<Token>(this.loginUrl, user, this.httpOptions)
+        .toPromise();
 
       console.log(this.token);
 
@@ -118,7 +118,11 @@ export class DataService {
   }
 
   public drop(event: CdkDragDrop<Todo[]>) {
-    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    moveItemInArray(
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex,
+    );
   }
 
   public async addTodo(object: Todo): Promise<void> {
@@ -190,7 +194,6 @@ export class DataService {
       })
       .toPromise();
     this.selectedTodo.subTodos.splice(index, 1);
-    this.router.navigate(['/todos']);
   }
 
   async deleteTodo(object: Todo): Promise<void> {
@@ -205,6 +208,7 @@ export class DataService {
       })
       .toPromise();
     this.selectedBoard.todos.splice(index, 1);
+    this.router.navigate(['/todos']);
   }
 
   isMobile(): boolean {

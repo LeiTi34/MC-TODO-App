@@ -4,12 +4,15 @@ import { Board } from 'src/entity/board.entity';
 import { Connection } from 'typeorm';
 import { User } from 'src/entity/user.entity';
 import { SubtodoService } from 'src/subtodo/subtodo.service';
+import { isNullOrUndefined } from 'util';
+import { AttachmentService } from 'src/attachment/attachment.service';
 
 @Injectable()
 export class TodoService {
   constructor(
     private connection: Connection,
     private readonly subtodoService: SubtodoService,
+    private readonly attachmentService: AttachmentService,
   ) {}
 
   todoRepository = this.connection.getRepository(Todo);
@@ -36,11 +39,19 @@ export class TodoService {
 
   async remove(user: User, id: number): Promise<boolean> {
     const currentTodo = await this.todoRepository.findOne({
-      relations: ['board', 'board.owner'],
+      relations: ['board', 'board.owner', 'subTodos', 'attachment'],
       where: { id: id },
     });
 
     if (currentTodo?.board?.owner?.id == user.id) {
+      for (const st of currentTodo.subTodos) {
+        await this.subtodoService.remove(user, st.id);
+      }
+
+      if (!isNullOrUndefined(currentTodo.attachment)) {
+        await this.attachmentService.remove(user, currentTodo.attachment.id);
+      }
+
       await this.todoRepository.remove(currentTodo);
       return true;
     }
@@ -78,6 +89,25 @@ export class TodoService {
     if (currentTodo?.board?.owner?.id == user.id) {
       delete currentTodo.board;
       return currentTodo;
+    }
+    return null;
+  }
+
+  async changePosition(
+    user: User,
+    id: number,
+    newPosition: number,
+  ): Promise<Board> {
+    const currentTodo = await this.todoRepository.findOne({
+      relations: ['board', 'board.owner'],
+      where: { id: id },
+    });
+
+    if (currentTodo?.board?.owner?.id == user.id) {
+      const currentBoard = await this.boardRepository.findOne({
+        relations: ['todos'],
+        where: { id: currentTodo.id },
+      });
     }
     return null;
   }
