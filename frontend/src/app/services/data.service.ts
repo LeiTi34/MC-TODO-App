@@ -18,6 +18,7 @@ export class DataService {
   private registerUrl = this.Url + '/auth/register';
   private boardUrl = this.Url + '/board';
   private todoUrl = this.Url + '/todo';
+  private subTodoUrl = this.Url + '/subtodo';
   private token: Token;
 
   httpOptions = {
@@ -152,13 +153,20 @@ export class DataService {
     this.selectedTodo.subTodos[index] = await this.addSubTodo(object);
   }
 
-  deleteSub(object: SubTodo): void {
+  async deleteSub(object: SubTodo): Promise<void> {
     const updateItem = this.selectedTodo.subTodos.find(
       (x) => x.position === object.position,
     );
     const index = this.selectedTodo.subTodos.indexOf(updateItem);
+    //if (
+    await this.http
+      .delete<boolean>(this.subTodoUrl + '/' + object.id, {
+        headers: this.getBearerHeader(),
+      })
+      .toPromise();
+    //)
     this.selectedTodo.subTodos.splice(index, 1);
-    this.updateTodo(this.selectedTodo);
+    //this.updateTodo(this.selectedTodo);
   }
 
   isMobile(): boolean {

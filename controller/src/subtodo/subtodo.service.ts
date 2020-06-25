@@ -25,18 +25,18 @@ export class SubtodoService {
     return await this.subTodoRepository.save(subTodo);
   }
 
-  //async remove(user: User, id: number): Promise<boolean> {
-  //const currentTodo = await this.todoRepository.findOne({
-  //relations: ['board', 'board.owner'],
-  //where: { id: id },
-  //});
+  async remove(user: User, id: number): Promise<boolean> {
+    const currentSubTodo = await this.subTodoRepository.findOne({
+      relations: ['todo', 'todo.board', 'todo.board.owner'],
+      where: { id: id },
+    });
 
-  //if (currentTodo?.board?.owner?.id == user.id) {
-  //await this.todoRepository.remove(currentTodo);
-  //return true;
-  //}
-  //return false;
-  //}
+    if (currentSubTodo?.todo?.board?.owner?.id == user.id) {
+      await this.subTodoRepository.remove(currentSubTodo);
+      return true;
+    }
+    return false;
+  }
 
   //async update(user: User, todo: Todo): Promise<boolean> {
   //const currentTodo = await this.todoRepository.findOne({

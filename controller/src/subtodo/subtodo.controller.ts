@@ -41,9 +41,9 @@ export class SubtodoController {
   //return await this.subtodoService.update(req.user as User, todo);
   //}
 
-  //@UseGuards(JwtAuthGuard)
-  //@Delete(':id')
-  //async remove(@Request() req: any, @Param('id') id: number): Promise<boolean> {
-  //return await this.subtodoService.remove(req.user as User, id);
-  //}
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  async remove(@Request() req: any, @Param('id') id: number): Promise<boolean> {
+    return await this.subtodoService.remove(req.user as User, id);
+  }
 }
