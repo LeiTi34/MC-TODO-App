@@ -23,6 +23,7 @@ export class TodoDetailComponent implements OnInit {
 
   constructor(public dataService: DataService) {
     this.subTodo$ = {
+      id: undefined,
       position: undefined,
       title: undefined,
       isDone: false,
@@ -70,7 +71,7 @@ export class TodoDetailComponent implements OnInit {
     document.getElementById('noteInput').blur();
   }
 
-  public async addSubTodo(): void {
+  public async addSubTodo(): Promise<void> {
     if (!this.subTodo$.title) {
       return;
     }
@@ -85,6 +86,7 @@ export class TodoDetailComponent implements OnInit {
     );
 
     this.subTodo$ = {
+      id: undefined,
       position: undefined,
       title: undefined,
       isDone: false,

@@ -9,8 +9,8 @@ export const TODOS: Todo[] = [
     createdDate: new Date(),
     updateDate: new Date(),
     subTodos: [
-      { position: 0, title: 'Milch', isDone: false },
-      { position: 1, title: 'Eier', isDone: false },
+      { id: 1, position: 0, title: 'Milch', isDone: false },
+      { id: 2, position: 1, title: 'Eier', isDone: false },
     ],
   },
   {
@@ -43,8 +43,8 @@ export const TODOS1: Todo[] = [
     createdDate: new Date(),
     updateDate: new Date(),
     subTodos: [
-      { position: 0, title: 'Coole app!', isDone: false },
-      { position: 1, title: 'Eier', isDone: false },
+      { id: 3, position: 0, title: 'Coole app!', isDone: false },
+      { id: 4, position: 1, title: 'Eier', isDone: false },
     ],
   },
   {
