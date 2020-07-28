@@ -1,6 +1,6 @@
 # MC-TODO-App
 
-## Starten
+## Startup
 
 ### 1. Database
 
